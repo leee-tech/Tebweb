@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [AuthController::class, 'index'])->name('login.index');
+
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::middleware(['auth'])->group(function () {
+    Route::group(['middleware' => ['role:admin']], function () {
+        Route::post('/login', [AuthController::class, 'login'])->name('login');
+
+    });
+});
+Route::get('/dashboard',function (){
+    return view('home.dashboard');
 });
