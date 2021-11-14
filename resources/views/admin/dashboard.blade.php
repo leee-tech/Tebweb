@@ -33,10 +33,10 @@
                     <div class="flex items-center justify-between">
                         <div class="widget-label">
                             <h3>
-                                Clients
+                                Patients
                             </h3>
                             <h1>
-                                512
+                                {{$count_p}}
                             </h1>
                         </div>
                         <span class="icon widget-icon text-green-500"><i class="mdi mdi-account-multiple mdi-48px"></i></span>
@@ -48,10 +48,10 @@
                     <div class="flex items-center justify-between">
                         <div class="widget-label">
                             <h3>
-                                Sales
+                                Doctors
                             </h3>
                             <h1>
-                                $7,770
+                                {{$count_d}}
                             </h1>
                         </div>
                         <span class="icon widget-icon text-blue-500"><i class="mdi mdi-cart-outline mdi-48px"></i></span>

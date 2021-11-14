@@ -29,6 +29,10 @@ Route::group(['middleware' => ['role:admin']], function () {
         Route::resource('departments',DepartmentController::class);
         Route::resource('doctors',DoctorController::class);
 
+        //get
+        //post
+        //update
+        //delete
     });
 
 //        Route::post('/login', [AuthController::class, 'login'])->name('login');
