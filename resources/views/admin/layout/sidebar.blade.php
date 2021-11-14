@@ -103,7 +103,7 @@
         <p class="menu-label">Management</p>
         <ul class="menu-list">
             <li class="--set-active-tables-html">
-                <a href="tables.html">
+                <a href="{{route('doctors.index')}}">
                     <span class="icon"><i class="mdi mdi-table"></i></span>
                     <span class="menu-item-label">Doctor Management</span>
                 </a>

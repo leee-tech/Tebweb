@@ -7,14 +7,11 @@ use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $doctors = Doctor::with(['user','department'])->paginate(10);
+        return view('admin.doctor.index',compact('doctors'));
     }
 
     /**
