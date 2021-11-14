@@ -23,8 +23,9 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $user = User::where('email', $credentials['email'])->first();
             if($user->hasRole('admin')){
-                return view('');
-
+                return redirect(route('admin.dashboard'));
+            }else if($user->hasRole('patient')){
+                return 10;
             }
         }
         return redirect("login")->withSuccess('Login details are not valid');

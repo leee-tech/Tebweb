@@ -43,4 +43,4 @@
 
 </head>
 <body>
-@include('home.layout.sidebar')
+@include('admin.layout.sidebar')

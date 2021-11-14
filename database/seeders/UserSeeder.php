@@ -18,7 +18,8 @@ class UserSeeder extends Seeder
     {
         $user = User::create([
             'email' => 'admin@smartlife.ws',
-            'name' => '1231212',
+            'first_name' => 'Mohammad',
+            'last_name' => 'Test',
             'password' => bcrypt('123456'),
         ]);
         $user->assignRole('admin');

@@ -44,10 +44,8 @@
             </div>
             <div class="navbar-item dropdown has-divider has-user-avatar">
                 <a class="navbar-link">
-                    <div class="user-avatar">
-                        <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="John Doe" class="rounded-full">
-                    </div>
-                    <div class="is-user-name"><span>John Doe</span></div>
+
+                    <div class="is-user-name"><span>{{auth()->user()->first_name . ' ' . auth()->user()->last_name}}</span></div>
                     <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
                 </a>
                 <div class="navbar-dropdown">
@@ -95,31 +93,37 @@
     <div class="menu is-menu-main">
         <p class="menu-label">General</p>
         <ul class="menu-list">
-            <li class="active">
-                <a href="index.html">
+            <li class="{{request()->is('admin/dashboard') || request()->is('admin/dashboard/*') ? 'active' : '' }}">
+                <a href="{{route('admin.dashboard')}}">
                     <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
                     <span class="menu-item-label">Dashboard</span>
                 </a>
             </li>
         </ul>
-        <p class="menu-label">Examples</p>
+        <p class="menu-label">Management</p>
         <ul class="menu-list">
             <li class="--set-active-tables-html">
                 <a href="tables.html">
                     <span class="icon"><i class="mdi mdi-table"></i></span>
-                    <span class="menu-item-label">Tables</span>
+                    <span class="menu-item-label">Doctor Management</span>
                 </a>
             </li>
-            <li class="--set-active-forms-html">
-                <a href="forms.html">
+            <li class="{{request()->is('admin/patients') || request()->is('admin/patients/*') ? 'active' : '' }}">
+                <a href="{{route('patients.index')}}">
                     <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
-                    <span class="menu-item-label">Forms</span>
+                    <span class="menu-item-label">Patient Management</span>
+                </a>
+            </li>
+            <li class="{{request()->is('admin/departments') || request()->is('admin/departments/*') ? 'active' : '' }}">
+                <a href="{{route('departments.index')}}">
+                    <span class="icon"><i class="mdi mdi-account-circle"></i></span>
+                    <span class="menu-item-label">Department Management</span>
                 </a>
             </li>
             <li class="--set-active-profile-html">
                 <a href="profile.html">
                     <span class="icon"><i class="mdi mdi-account-circle"></i></span>
-                    <span class="menu-item-label">Profile</span>
+                    <span class="menu-item-label">Category Management</span>
                 </a>
             </li>
             <li>
