@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\PatientController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,8 @@ Route::group(['middleware' => ['role:admin']], function () {
         Route::resource('patients',PatientController::class);
         Route::resource('departments',DepartmentController::class);
         Route::resource('doctors',DoctorController::class);
+        Route::resource('hospitals',HospitalController::class);
+
 
         //get
         //post

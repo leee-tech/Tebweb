@@ -4,9 +4,9 @@
         <section class="is-title-bar">
             <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
                 <ul>
-                    <li>Patient</li>
+                    <li>Doctor</li>
                     <li>Update</li>
-                    <li> {{$patient->user->first_name .' '.$patient->user->last_name}}</li>
+                    <li> {{$doctor->user->first_name .' '.$doctor->user->last_name}}</li>
                 </ul>
 
             </div>
@@ -29,7 +29,7 @@
                     </p>
                 </header>
                 <div class="card-content">
-                    <form method="post" action="{{route('patients.update',$patient->id)}}">
+                    <form method="post" action="{{route('doctors.update',$doctor->id)}}">
                         @csrf
                         @method('patch')
                         <div class="field">
@@ -37,30 +37,47 @@
                             <div class="field-body">
                                 <div class="field">
                                     <div class="control icons-left">
-                                        <input class="input" type="text" name="first_name" value="{{$patient->user->first_name}}" placeholder="First Name">
+                                        <input class="input" type="text" name="first_name" value="{{$doctor->user->first_name}}" placeholder="First Name">
                                         <span class="icon left"><i class="mdi mdi-account"></i></span>
                                     </div>
                                 </div>
                                 <div class="field">
                                     <div class="control icons-left">
-                                        <input class="input" type="text" name="last_name" value="{{$patient->user->last_name}}" placeholder="Last Name">
+                                        <input class="input" type="text" name="last_name" value="{{$doctor->user->last_name}}" placeholder="Last Name">
                                         <span class="icon left"><i class="mdi mdi-account"></i></span>
                                     </div>
                                 </div>
 
                                 <div class="field">
                                     <div class="control icons-left icons-right">
-                                        <input class="input" type="email" name="email" value="{{$patient->user->email}}" placeholder="Email" >
+                                        <input class="input" type="email" name="email" value="{{$doctor->user->email}}" placeholder="Email" >
                                             <span class="icon left"><i class="mdi mdi-mail"></i></span>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="control icons-left icons-right">
+
+                                        <div class="select is-fullwidth">
+                                            <select class="form-control" name="department_id">
+                                                <option>Select Department</option>
+                                                @foreach ($departments as $key => $value)
+                                                    <option value="{{ $key }}" {{ ( $key == $doctor->department_id) ? 'selected' : '' }}>
+                                                        {{ $value }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <span class="icon left"><i class="mdi mdi-adjust"></i></span>
                                     </div>
                                 </div>
 
                                 <div class="field">
                                     <div class="control icons-left icons-right">
-                                        <input class="input" type="number" name="age" value="{{$patient->age}}" placeholder="Age" >
-                                        <span class="icon left"><i class="mdi mdi-adjust"></i></span>
+                                        <input class="input" type="text" name="position" value="{{$doctor->position}}" placeholder="Position" >
+                                        <span class="icon left"><i class="mdi mdi-mail"></i></span>
                                     </div>
                                 </div>
+
                                 <div class="field">
                                     <div class="control icons-left icons-right">
                                         <input class="input" type="password" name="password" placeholder="Password">
@@ -72,13 +89,7 @@
                         </div>
                         <hr>
 
-                        <div class="field">
-                            <label class="label">Address</label>
-                            <div class="control">
-                                <textarea class="textarea" name="address"  placeholder="Address">{{$patient->address}}</textarea>
-                            </div>
-                        </div>
-                        <hr>
+
 
                         <div class="field grouped">
                             <div class="control">

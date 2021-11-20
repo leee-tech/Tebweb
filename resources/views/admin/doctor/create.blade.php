@@ -4,7 +4,7 @@
         <section class="is-title-bar">
             <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
                 <ul>
-                    <li>Patient</li>
+                    <li>Doctor</li>
                     <li>create</li>
                     <li >New</li>
 
@@ -30,7 +30,7 @@
                     </p>
                 </header>
                 <div class="card-content">
-                    <form method="post" action="{{route('patients.store')}}">
+                    <form method="post" action="{{route('doctors.store')}}">
                         @csrf
                         <div class="field">
                             <label class="label">From</label>
@@ -57,28 +57,37 @@
 
                                 <div class="field">
                                     <div class="control icons-left icons-right">
-                                        <input class="input" type="number" name="age" placeholder="Age" >
+                                        <div class="select is-fullwidth">
+                                            <select class="form-control" name="department_id">
+                                                <option>Select Department</option>
+                                                @foreach ($departments as $key => $value)
+                                                    <option value="{{ $key }}">
+                                                        {{ $value }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                         <span class="icon left"><i class="mdi mdi-adjust"></i></span>
                                     </div>
                                 </div>
                                 <div class="field">
                                     <div class="control icons-left icons-right">
+                                        <input class="input" type="text" name="position" placeholder="Position" >
+                                        <span class="icon left"><i class="mdi mdi-mail"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <div class="control icons-left icons-right">
                                         <input class="input" type="password" name="password" placeholder="Password">
                                         <span class="icon left"><i class="mdi mdi-textbox-password"></i></span>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <hr>
 
-                        <div class="field">
-                            <label class="label">Address</label>
-                            <div class="control">
-                                <textarea class="textarea" name="address" placeholder="Address"></textarea>
-                            </div>
-                        </div>
-                        <hr>
+
 
                         <div class="field grouped">
                             <div class="control">

@@ -98,6 +98,7 @@ class PatientController extends Controller
             'first_name' => $data['first_name'],
             'last_name' => $data['first_name'],
             "password" => Hash::make($data['password'])]);
+        return redirect()->route('patients.index')->with('success','Added successful');
 
     }
 

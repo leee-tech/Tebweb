@@ -120,10 +120,10 @@
                     <span class="menu-item-label">Department Management</span>
                 </a>
             </li>
-            <li class="--set-active-profile-html">
-                <a href="profile.html">
+            <li class="{{request()->is('admin/hospitals') || request()->is('admin/hospitals/*') ? 'active' : '' }}">
+                <a href="{{route('hospitals.index')}}">
                     <span class="icon"><i class="mdi mdi-account-circle"></i></span>
-                    <span class="menu-item-label">Category Management</span>
+                    <span class="menu-item-label">Hospital Management</span>
                 </a>
             </li>
             <li>
