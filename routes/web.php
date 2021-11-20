@@ -6,6 +6,8 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\TypeController;
+use App\Models\Type;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +32,8 @@ Route::group(['middleware' => ['role:admin']], function () {
         Route::resource('departments',DepartmentController::class);
         Route::resource('doctors',DoctorController::class);
         Route::resource('hospitals',HospitalController::class);
+        Route::resource('types',TypeController::class);
+
 
 
         //get

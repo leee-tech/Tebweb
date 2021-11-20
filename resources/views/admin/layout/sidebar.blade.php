@@ -116,20 +116,20 @@
             </li>
             <li class="{{request()->is('admin/departments') || request()->is('admin/departments/*') ? 'active' : '' }}">
                 <a href="{{route('departments.index')}}">
-                    <span class="icon"><i class="mdi mdi-account-circle"></i></span>
+                    <span class="icon"><i class="mdi mdi-archive"></i></span>
                     <span class="menu-item-label">Department Management</span>
                 </a>
             </li>
             <li class="{{request()->is('admin/hospitals') || request()->is('admin/hospitals/*') ? 'active' : '' }}">
                 <a href="{{route('hospitals.index')}}">
-                    <span class="icon"><i class="mdi mdi-account-circle"></i></span>
+                    <span class="icon"><i class="mdi mdi-hospital-building"></i></span>
                     <span class="menu-item-label">Hospital Management</span>
                 </a>
             </li>
-            <li>
-                <a href="login.html">
-                    <span class="icon"><i class="mdi mdi-lock"></i></span>
-                    <span class="menu-item-label">Login</span>
+            <li class="{{request()->is('admin/types') || request()->is('admin/types/*') ? 'active' : '' }}">
+                <a href="{{route('types.index')}}">
+                    <span class="icon"><i class="mdi mdi-format-list-bulleted-type"></i></span>
+                    <span class="menu-item-label">Type Management</span>
                 </a>
             </li>
             <li>
@@ -151,6 +151,7 @@
                     </li>
                 </ul>
             </li>
+
         </ul>
         <p class="menu-label">About</p>
         <ul class="menu-list">

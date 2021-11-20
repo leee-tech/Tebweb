@@ -4,11 +4,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard - Admin One Tailwind CSS Admin Dashboard</title>
 
     <!-- Tailwind is included -->
     <link rel="stylesheet" href="{{asset('website/css/main.css?v=1628755089081')}}">
-
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('website/img/apple-touch-icon.png')}}"/>
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('website/img/favicon-32x32.png')}}"/>
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('website/img/favicon-16x16.png')}}"/>

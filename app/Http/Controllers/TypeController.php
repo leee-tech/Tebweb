@@ -7,77 +7,63 @@ use Illuminate\Http\Request;
 
 class TypeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $types = Type::paginate(10);
+        $types = Type::query();
+        if (request('term')) {
+            $types->where('name', 'Like', '%' . request('term') . '%');
+        }
+
+        $types = $types->orderBy('id', 'DESC')->paginate(10);
+
+        //dd($patients);
+        return view('admin.type.index',compact('types'));
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('admin.type.create');
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $data = $request->only('name');
+        Type::create(['name'=>$data['name']]);
+        return redirect()->route('types.index')->with('success','Added successful');
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Type  $type
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Type $type)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Type  $type
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Type $type)
+
+    public function edit($id)
     {
-        //
+        $type = Type::find($id);
+        return view('admin.type.edit',compact('type'));
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Type  $type
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Type $type)
+
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate(['name' => 'required']);
+        $data = $request->only('name');
+        $department = Type::find($id);
+        $department->update($data);
+        return redirect()->route('types.index')->with('success','Update successfully!');
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Type  $type
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Type $type)
     {
         //
