@@ -123,13 +123,25 @@
             <li class="{{request()->is('admin/hospitals') || request()->is('admin/hospitals/*') ? 'active' : '' }}">
                 <a href="{{route('hospitals.index')}}">
                     <span class="icon"><i class="mdi mdi-hospital-building"></i></span>
-                    <span class="menu-item-label">Hospital Management</span>
+                    <span class="menu-item-label">Hospitals Management</span>
                 </a>
             </li>
             <li class="{{request()->is('admin/types') || request()->is('admin/types/*') ? 'active' : '' }}">
                 <a href="{{route('types.index')}}">
                     <span class="icon"><i class="mdi mdi-format-list-bulleted-type"></i></span>
-                    <span class="menu-item-label">Type Management</span>
+                    <span class="menu-item-label">Types Management</span>
+                </a>
+            </li>
+            <li class="{{request()->is('admin/drugs') || request()->is('admin/drugs/*') ? 'active' : '' }}">
+                <a href="{{route('drugs.index')}}">
+                    <span class="icon"><i class="mdi mdi-format-list-bulleted-type"></i></span>
+                    <span class="menu-item-label">Drugs Management</span>
+                </a>
+            </li>
+            <li class="{{request()->is('admin/types') || request()->is('admin/types/*') ? 'active' : '' }}">
+                <a href="{{route('types.index')}}">
+                    <span class="icon"><i class="mdi mdi-format-list-bulleted-type"></i></span>
+                    <span class="menu-item-label">Disease Management</span>
                 </a>
             </li>
             <li>

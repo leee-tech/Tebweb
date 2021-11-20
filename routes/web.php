@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\DrugController;
 use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\TypeController;
@@ -33,13 +34,8 @@ Route::group(['middleware' => ['role:admin']], function () {
         Route::resource('doctors',DoctorController::class);
         Route::resource('hospitals',HospitalController::class);
         Route::resource('types',TypeController::class);
+        Route::resource('drugs',DrugController::class);
 
-
-
-        //get
-        //post
-        //update
-        //delete
     });
 
 //        Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -51,3 +47,8 @@ Route::group(['middleware' => ['role:patient']], function () {
 Route::get('/dashboard',function (){
     return view('home.dashboard');
 });
+
+
+//Model => insert update delete select
+//View => front
+//Controller // write => Model + View
