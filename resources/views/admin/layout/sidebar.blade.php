@@ -138,8 +138,8 @@
                     <span class="menu-item-label">Drugs Management</span>
                 </a>
             </li>
-            <li class="{{request()->is('admin/types') || request()->is('admin/types/*') ? 'active' : '' }}">
-                <a href="{{route('types.index')}}">
+            <li class="{{request()->is('admin/diseases') || request()->is('admin/diseases/*') ? 'active' : '' }}">
+                <a href="{{route('diseases.index')}}">
                     <span class="icon"><i class="mdi mdi-format-list-bulleted-type"></i></span>
                     <span class="menu-item-label">Disease Management</span>
                 </a>

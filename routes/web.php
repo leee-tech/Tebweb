@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\DiseaseController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\DrugController;
 use App\Http\Controllers\HospitalController;
@@ -35,6 +36,8 @@ Route::group(['middleware' => ['role:admin']], function () {
         Route::resource('hospitals',HospitalController::class);
         Route::resource('types',TypeController::class);
         Route::resource('drugs',DrugController::class);
+        Route::resource('diseases',DiseaseController::class);
+
 
     });
 

@@ -48,6 +48,7 @@ class DrugController extends Controller
         $drug = Drug::find($id);
         $drug->update($data);
         return redirect()->route('drugs.index')->with('success','Update Drug successful');
+
     }
 
 
