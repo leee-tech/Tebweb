@@ -24,8 +24,6 @@ class DoctorController extends Controller
     {
         $departments = Department::pluck('name', 'id');
         return view('admin.doctor.create',compact('departments'));
-
-
     }
 
 

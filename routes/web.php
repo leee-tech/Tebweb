@@ -32,8 +32,8 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::prefix('admin')->group(function(){
         Route::get('dashboard', [DashboardController::class, 'indexAdmin'])->name('admin.dashboard');
         Route::resource('patients',PatientController::class);
+        Route::resource('doctors',DoctorController::class);//admin/doctors
         Route::resource('departments',DepartmentController::class);
-        Route::resource('doctors',DoctorController::class);
         Route::resource('hospitals',HospitalController::class);
         Route::resource('types',TypeController::class);
         Route::resource('drugs',DrugController::class);
@@ -42,10 +42,14 @@ Route::group(['middleware' => ['role:admin']], function () {
 
 //        Route::post('/login', [AuthController::class, 'login'])->name('login');
     });
+
+
+
 Route::group(['middleware' => ['role:patient']], function () {
     Route::get('/patient/dashboard', [DashboardController::class, 'indexAdmin'])->name('patient.dashboard');
 //        Route::post('/login', [AuthController::class, 'login'])->name('login');
 });
+
 Route::get('/dashboard',function (){
     return view('home.dashboard');
 });
