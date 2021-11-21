@@ -87,7 +87,7 @@
 <aside class="aside is-placed-left is-expanded">
     <div class="aside-tools">
         <div>
-            Admin <b class="font-black">One</b>
+            Admin <b class="font-black">TebWeb</b>
         </div>
     </div>
     <div class="menu is-menu-main">
@@ -114,77 +114,77 @@
                     <span class="menu-item-label">Patient Management</span>
                 </a>
             </li>
-            <li class="{{request()->is('admin/departments') || request()->is('admin/departments/*') ? 'active' : '' }}">
-                <a href="{{route('departments.index')}}">
-                    <span class="icon"><i class="mdi mdi-archive"></i></span>
-                    <span class="menu-item-label">Department Management</span>
-                </a>
-            </li>
-            <li class="{{request()->is('admin/hospitals') || request()->is('admin/hospitals/*') ? 'active' : '' }}">
-                <a href="{{route('hospitals.index')}}">
-                    <span class="icon"><i class="mdi mdi-hospital-building"></i></span>
-                    <span class="menu-item-label">Hospitals Management</span>
-                </a>
-            </li>
-            <li class="{{request()->is('admin/types') || request()->is('admin/types/*') ? 'active' : '' }}">
-                <a href="{{route('types.index')}}">
-                    <span class="icon"><i class="mdi mdi-format-list-bulleted-type"></i></span>
-                    <span class="menu-item-label">Types Management</span>
-                </a>
-            </li>
-            <li class="{{request()->is('admin/drugs') || request()->is('admin/drugs/*') ? 'active' : '' }}">
-                <a href="{{route('drugs.index')}}">
-                    <span class="icon"><i class="mdi mdi-format-list-bulleted-type"></i></span>
-                    <span class="menu-item-label">Drugs Management</span>
-                </a>
-            </li>
-            <li class="{{request()->is('admin/diseases') || request()->is('admin/diseases/*') ? 'active' : '' }}">
-                <a href="{{route('diseases.index')}}">
-                    <span class="icon"><i class="mdi mdi-format-list-bulleted-type"></i></span>
-                    <span class="menu-item-label">Disease Management</span>
-                </a>
-            </li>
+{{--            <li class="{{request()->is('admin/departments') || request()->is('admin/departments/*') ? 'active' : '' }}">--}}
+{{--                <a href="{{route('departments.index')}}">--}}
+{{--                    <span class="icon"><i class="mdi mdi-archive"></i></span>--}}
+{{--                    <span class="menu-item-label">Department Management</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="{{request()->is('admin/hospitals') || request()->is('admin/hospitals/*') ? 'active' : '' }}">--}}
+{{--                <a href="{{route('hospitals.index')}}">--}}
+{{--                    <span class="icon"><i class="mdi mdi-hospital-building"></i></span>--}}
+{{--                    <span class="menu-item-label">Hospitals Management</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="{{request()->is('admin/types') || request()->is('admin/types/*') ? 'active' : '' }}">--}}
+{{--                <a href="{{route('types.index')}}">--}}
+{{--                    <span class="icon"><i class="mdi mdi-format-list-bulleted-type"></i></span>--}}
+{{--                    <span class="menu-item-label">Types Management</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="{{request()->is('admin/drugs') || request()->is('admin/drugs/*') ? 'active' : '' }}">--}}
+{{--                <a href="{{route('drugs.index')}}">--}}
+{{--                    <span class="icon"><i class="mdi mdi-format-list-bulleted-type"></i></span>--}}
+{{--                    <span class="menu-item-label">Drugs Management</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="{{request()->is('admin/diseases') || request()->is('admin/diseases/*') ? 'active' : '' }}">--}}
+{{--                <a href="{{route('diseases.index')}}">--}}
+{{--                    <span class="icon"><i class="mdi mdi-format-list-bulleted-type"></i></span>--}}
+{{--                    <span class="menu-item-label">Disease Management</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
             <li>
-                <a class="dropdown">
-                    <span class="icon"><i class="mdi mdi-view-list"></i></span>
-                    <span class="menu-item-label">Submenus</span>
-                    <span class="icon"><i class="mdi mdi-plus"></i></span>
-                </a>
-                <ul>
-                    <li>
-                        <a href="#void">
-                            <span>Sub-item One</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#void">
-                            <span>Sub-item Two</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+{{--                <a class="dropdown">--}}
+{{--                    <span class="icon"><i class="mdi mdi-view-list"></i></span>--}}
+{{--                    <span class="menu-item-label">Submenus</span>--}}
+{{--                    <span class="icon"><i class="mdi mdi-plus"></i></span>--}}
+{{--                </a>--}}
+{{--                <ul>--}}
+{{--                    <li>--}}
+{{--                        <a href="#void">--}}
+{{--                            <span>Sub-item One</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li>--}}
+{{--                        <a href="#void">--}}
+{{--                            <span>Sub-item Two</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </li>--}}
 
         </ul>
-        <p class="menu-label">About</p>
+{{--        <p class="menu-label">About</p>--}}
         <ul class="menu-list">
-            <li>
-                <a href="https://justboil.me" onclick="alert('Coming soon'); return false" target="_blank" class="has-icon">
-                    <span class="icon"><i class="mdi mdi-credit-card-outline"></i></span>
-                    <span class="menu-item-label">Premium Demo</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://justboil.me/tailwind-admin-templates" class="has-icon">
-                    <span class="icon"><i class="mdi mdi-help-circle"></i></span>
-                    <span class="menu-item-label">About</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/justboil/admin-one-tailwind" class="has-icon">
-                    <span class="icon"><i class="mdi mdi-github-circle"></i></span>
-                    <span class="menu-item-label">GitHub</span>
-                </a>
-            </li>
+{{--            <li>--}}
+{{--                <a href="https://justboil.me" onclick="alert('Coming soon'); return false" target="_blank" class="has-icon">--}}
+{{--                    <span class="icon"><i class="mdi mdi-credit-card-outline"></i></span>--}}
+{{--                    <span class="menu-item-label">Premium Demo</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li>--}}
+{{--                <a href="https://justboil.me/tailwind-admin-templates" class="has-icon">--}}
+{{--                    <span class="icon"><i class="mdi mdi-help-circle"></i></span>--}}
+{{--                    <span class="menu-item-label">About</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li>--}}
+{{--                <a href="https://github.com/justboil/admin-one-tailwind" class="has-icon">--}}
+{{--                    <span class="icon"><i class="mdi mdi-github-circle"></i></span>--}}
+{{--                    <span class="menu-item-label">GitHub</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
         </ul>
     </div>
 </aside>

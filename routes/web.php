@@ -8,6 +8,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\DrugController;
 use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\TypeController;
 use App\Models\Type;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//AuthController
 Route::get('/', [AuthController::class, 'index'])->name('login.index');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -37,8 +38,6 @@ Route::group(['middleware' => ['role:admin']], function () {
         Route::resource('types',TypeController::class);
         Route::resource('drugs',DrugController::class);
         Route::resource('diseases',DiseaseController::class);
-
-
     });
 
 //        Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -51,6 +50,14 @@ Route::get('/dashboard',function (){
     return view('home.dashboard');
 });
 
+
+Route::get('login-diala',function (){
+   return "hello login";
+});
+//get => get data or view
+//post => create data
+//patch => update data
+//delete => remove
 
 //Model => insert update delete select
 //View => front

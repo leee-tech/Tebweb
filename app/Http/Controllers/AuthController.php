@@ -12,6 +12,8 @@ class AuthController extends Controller
     public function index(){
         return view('auth.login');
     }
+
+
     public function login(Request $request)
     {
 
@@ -28,7 +30,7 @@ class AuthController extends Controller
                 return 10;
             }
         }
-        return redirect("login")->withSuccess('Login details are not valid');
+        return redirect(route('login.index'))->withSuccess('Login details are not valid');
 
     }
 
