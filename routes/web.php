@@ -10,6 +10,7 @@ use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\TypeController;
+use App\Models\Employee;
 use App\Models\Type;
 use Illuminate\Support\Facades\Route;
 
@@ -23,11 +24,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//=>=>=>=>=>Controller (Model + view) => resource => register patiant
+
 //AuthController
 Route::get('/', [AuthController::class, 'index'])->name('login.index');
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
-
+//50>
 Route::group(['middleware' => ['role:admin']], function () {
     Route::prefix('admin')->group(function(){
         Route::get('dashboard', [DashboardController::class, 'indexAdmin'])->name('admin.dashboard');
@@ -54,10 +58,53 @@ Route::get('/dashboard',function (){
     return view('home.dashboard');
 });
 
-
-Route::get('login-diala',function (){
-   return "hello login";
+Route::get('register',function (){
+   return view('register');
 });
+
+Route::get('borini',function (){
+    return 10+20;
+});//get data or view html
+
+Route::get('where-emp',function (){
+//    $emp = \App\Models\Employee::find(1);//where id
+    $emp_where = Employee::all()->where('salary','>=',1000);
+    return $emp_where;
+});
+Route::get('create-emp',function (){
+    $data['name'] = "Husam";
+    $data['salary'] = 1500;
+    $data['age']=15;
+    $data['address']="home";
+    //NameModel::create()
+    //NameModel::all()->where()
+    //NameModel::all()
+    Employee::create($data);//insert into
+});
+
+Route::get('employees',function (){
+    // select * from employees ; =>
+    $emp = Employee::all();//select * from employees
+    $emp_count = Employee::all()->count();
+    return $emp_count;
+});
+
+
+
+
+
+
+
+
+//Route::post(); // create data or send data
+//Route::delete();// delete data
+//Route::patch();//update data
+
+//Route::get('login-diala',function (){
+//   return "hello login";
+//});
+
+
 //get => get data or view
 //post => create data
 //patch => update data
@@ -66,3 +113,10 @@ Route::get('login-diala',function (){
 //Model => insert update delete select
 //View => front
 //Controller // write => Model + View
+
+
+//serach how create laravel project =>
+//each route =>
+//route return count(table)
+//Table => Customer (create - update - delete - select)  php .\artisan make:model Admin -crm
+
