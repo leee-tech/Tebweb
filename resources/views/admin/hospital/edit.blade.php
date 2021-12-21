@@ -47,7 +47,7 @@
                         <div class="field grouped">
                             <div class="control">
                                 <button type="submit" class="button green">
-                                    Submit
+                                    <Submit></Submit>
                                 </button>
                             </div>
 

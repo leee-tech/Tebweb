@@ -14,6 +14,6 @@ class DashboardController extends Controller
         return view('admin.dashboard',compact('count_p','count_d'));
     }
     function indexPatient(){
-        return "Here";
+        return view('patient.dashboard');
     }
 }

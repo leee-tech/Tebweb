@@ -65,7 +65,6 @@
                                     <div class="control icons-left icons-right">
                                         <input class="input" type="password" name="password" placeholder="Password">
                                         <span class="icon left"><i class="mdi mdi-textbox-password"></i></span>
-
                                     </div>
                                 </div>
                             </div>

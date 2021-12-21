@@ -18,5 +18,9 @@ class Patient extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function record()
+    {
+        return $this->hasOne(Record::class, 'patient_id');
+    }
 
 }

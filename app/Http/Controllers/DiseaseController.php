@@ -43,7 +43,7 @@ class DiseaseController extends Controller
     }
 
 
-    public function update(Request $request, Disease $disease)
+    public function update(Request $request, $id)
     {
         $data = $request->only('name');
         $diseases = Disease::find($id);

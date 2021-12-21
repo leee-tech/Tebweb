@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -13,7 +16,29 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
+    public function signup(){
+        return view('auth.signup');
+    }
 
+    public function signupStore(Request $request){
+        $register_data = $request->all();
+        $id = DB::table('users')->insertGetId([
+            "email" => $register_data["email"],
+            'first_name' => $register_data['first_name'],
+            'last_name' => $register_data['last_name'],
+            "password" => Hash::make($register_data['password']),
+        ]);
+       $patient_id = DB::table('patients')->insertOrIgnore([
+            "user_id" => $id,
+            'age'=>$register_data['age'],
+            'address'=>$register_data['address'],
+            "created_at" =>  Carbon::now(),
+        ]);
+        $user = User::find($id);
+        $user->assignRole('patient');
+        return redirect()->route('login.index')->with('success','Added successful');
+
+    }
     public function login(Request $request)
     {
 
@@ -27,11 +52,14 @@ class AuthController extends Controller
             if($user->hasRole('admin')){
                 return redirect(route('admin.dashboard'));
             }else if($user->hasRole('patient')){
-                return 10;
+                return redirect(route('patient.dashboard'));
             }
         }
         return redirect(route('login.index'))->withSuccess('Login details are not valid');
-
+    }
+    public function logout(){
+        Auth::logout();
+        return redirect(route('login.index'));
     }
 
 }

@@ -87,14 +87,14 @@
 <aside class="aside is-placed-left is-expanded">
     <div class="aside-tools">
         <div>
-            Admin <b class="font-black">TebWeb</b>
+            Patient <b class="font-black">TebWeb</b>
         </div>
     </div>
     <div class="menu is-menu-main">
         <p class="menu-label">General</p>
         <ul class="menu-list">
-            <li class="{{request()->is('admin/dashboard') || request()->is('admin/dashboard/*') ? 'active' : '' }}">
-                <a href="{{route('admin.dashboard')}}">
+            <li class="{{request()->is('patient/dashboard') || request()->is('patient/dashboard/*') ? 'active' : '' }}">
+                <a href="{{route('patient.dashboard')}}">
                     <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
                     <span class="menu-item-label">Dashboard</span>
                 </a>
@@ -106,42 +106,6 @@
                 <a href="{{route('doctors.index')}}">
                     <span class="icon"><i class="mdi mdi-table"></i></span>
                     <span class="menu-item-label">Doctor Management</span>
-                </a>
-            </li>
-            <li class="{{request()->is('admin/patients') || request()->is('admin/patients/*') ? 'active' : '' }}">
-                <a href="{{route('patients.index')}}">
-                    <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
-                    <span class="menu-item-label">Patient Management</span>
-                </a>
-            </li>
-            <li class="{{request()->is('admin/departments') || request()->is('admin/departments/*') ? 'active' : '' }}">
-                <a href="{{route('departments.index')}}">
-                    <span class="icon"><i class="mdi mdi-archive"></i></span>
-                    <span class="menu-item-label">Department Management</span>
-                </a>
-            </li>
-            <li class="{{request()->is('admin/hospitals') || request()->is('admin/hospitals/*') ? 'active' : '' }}">
-                <a href="{{route('hospitals.index')}}">
-                    <span class="icon"><i class="mdi mdi-hospital-building"></i></span>
-                    <span class="menu-item-label">Hospitals Management</span>
-                </a>
-            </li>
-            <li class="{{request()->is('admin/types') || request()->is('admin/types/*') ? 'active' : '' }}">
-                <a href="{{route('types.index')}}">
-                    <span class="icon"><i class="mdi mdi-format-list-bulleted-type"></i></span>
-                    <span class="menu-item-label">Types Management</span>
-                </a>
-            </li>
-            <li class="{{request()->is('admin/drugs') || request()->is('admin/drugs/*') ? 'active' : '' }}">
-                <a href="{{route('drugs.index')}}">
-                    <span class="icon"><i class="mdi mdi-format-list-bulleted-type"></i></span>
-                    <span class="menu-item-label">Drugs Management</span>
-                </a>
-            </li>
-            <li class="{{request()->is('admin/diseases') || request()->is('admin/diseases/*') ? 'active' : '' }}">
-                <a href="{{route('diseases.index')}}">
-                    <span class="icon"><i class="mdi mdi-format-list-bulleted-type"></i></span>
-                    <span class="menu-item-label">Disease Management</span>
                 </a>
             </li>
             <li>

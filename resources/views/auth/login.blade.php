@@ -55,6 +55,9 @@
                             <button type="submit" class="button blue">
                                 Login
                             </button>
+                            <a href="{{route('signup')}}" class="button red">
+                                Register
+                            </a>
                         </div>
 
                     </div>
