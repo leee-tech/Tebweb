@@ -14,7 +14,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::with(['hospital','department'])->paginate(10);
+        $users = User::role('doctor')->with(['hospital','department'])->paginate(10);
         return view('admin.users.view_doctor',compact('users'));
     }
 

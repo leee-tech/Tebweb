@@ -13,7 +13,7 @@ class PatientController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(10);
+        $users = User::role('patient')->paginate(10);
         return view('admin.users.view_patient',compact('users'));
     }
 
