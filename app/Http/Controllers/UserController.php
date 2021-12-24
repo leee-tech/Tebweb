@@ -9,19 +9,22 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-class PatientController extends Controller
+class UserController extends Controller
 {
+
     public function index()
     {
-        $users = User::paginate(10);
-        return view('admin.users.view_patient',compact('users'));
+        $users = User::with(['hospital','department'])->paginate(10);
+        return view('admin.users.view_doctor',compact('users'));
     }
 
 
     public function create()
     {
         $departments = Department::all();
-        return view('admin.users.edit_patient',compact('departments'));
+        $hospitals = Hospital::all();
+
+        return view('admin.users.add_doctor',compact('departments','hospitals'));
     }
 
     public function store(Request $request)
@@ -36,11 +39,14 @@ class PatientController extends Controller
             'gender'=>$inputs['gender'],
             'age' => $inputs['age'],
             'phone' => $inputs['phone'],
-            'address' => $inputs['address'] ?? null
+            'department_id'=>$inputs['department_id'],
+            'address' => $inputs['address'] ?? null,
+            'hospital_id' => $inputs['hospital_id'],
+
         ]);
         $user = User::find($id);
-        $user->assignRole('patient');
-        return redirect()->route('patients.index')->with('success','Added successful');
+        $user->assignRole('doctor');
+        return redirect()->route('users.index')->with('success','Added successful');
     }
 
 
@@ -52,7 +58,15 @@ class PatientController extends Controller
     public function edit($id)
     {
         $doctor = User::find($id);
-        return view('admin.users.edit_patient',compact('doctor'));
+        $departments = Department::all();
+        $hospitals = Hospital::all();
+
+        $get_department_id = $doctor->department_id;
+        $get_hospital_id = $doctor->hospital_id;
+
+        return view('admin.users.edit_doctor',compact('doctor',
+            'departments',
+            'get_department_id','hospitals','get_hospital_id'));
 
     }
 
@@ -68,9 +82,12 @@ class PatientController extends Controller
             'gender'=>$inputs['gender'],
             'age' => $inputs['age'],
             'phone' => $inputs['phone'],
-            'address' => $inputs['address'] ?? null,
+            'department_id'=>$inputs['department_id'],
+            'hospital_id' => $inputs['hospital_id'],
+
+            'address' => $inputs['address'] ?? null
         ]);
-        return redirect()->route('patients.index')->with('success','Edit successful');
+        return redirect()->route('users.index')->with('success','Edit successful');
 
     }
 

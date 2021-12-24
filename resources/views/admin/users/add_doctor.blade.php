@@ -30,7 +30,7 @@
                     </p>
                 </header>
                 <div class="card-content">
-                    <form method="post" action="{{route('doctors.store')}}">
+                    <form method="post" action="{{route('users.store')}}">
                         @csrf
                         <div class="field">
                             <label class="label">From</label>
@@ -54,15 +54,26 @@
                                             <span class="icon left"><i class="mdi mdi-mail"></i></span>
                                     </div>
                                 </div>
-
+                                <div class="field">
+                                    <div class="control icons-left icons-right">
+                                        <input class="input" type="password" name="password" placeholder="Password" >
+                                        <span class="icon left"><i class="mdi mdi-mail"></i></span>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="control icons-left icons-right">
+                                        <input class="input" type="text" name="phone" placeholder="Phone" >
+                                        <span class="icon left"><i class="mdi mdi-mail"></i></span>
+                                    </div>
+                                </div>
                                 <div class="field">
                                     <div class="control icons-left icons-right">
                                         <div class="select is-fullwidth">
-                                            <select class="form-control" name="department_id">
-                                                <option>Select Department</option>
-                                                @foreach ($departments as $key => $value)
-                                                    <option value="{{ $key }}">
-                                                        {{ $value }}
+                                            <select class="form-control" name="hospital_id">
+                                                <option>Select Hospital</option>
+                                                @foreach ($hospitals as $key)
+                                                    <option value="{{ $key->id }}">
+                                                        {{ $key->name }}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -72,17 +83,52 @@
                                 </div>
                                 <div class="field">
                                     <div class="control icons-left icons-right">
-                                        <input class="input" type="text" name="position" placeholder="Position" >
-                                        <span class="icon left"><i class="mdi mdi-mail"></i></span>
+                                        <div class="select is-fullwidth">
+                                            <select class="form-control" name="department_id">
+                                                <option>Select Department</option>
+                                                @foreach ($departments as $key)
+                                                    <option value="{{ $key->id }}">
+                                                        {{ $key->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <span class="icon left"><i class="mdi mdi-adjust"></i></span>
                                     </div>
                                 </div>
 
+
+
                                 <div class="field">
                                     <div class="control icons-left icons-right">
-                                        <input class="input" type="password" name="password" placeholder="Password">
-                                        <span class="icon left"><i class="mdi mdi-textbox-password"></i></span>
+                                        <select class="input"  name="gender" required>
+                                            <option value="Female">Female</option>
+                                            <option value="Male">Male</option>
+
+                                        </select>
+                                        <span class="icon is-small left"><i class="mdi mdi-asterisk"></i></span>
+
                                     </div>
                                 </div>
+                                <div class="field">
+                                    <div class="control icons-left icons-right">
+                                        <input class="input" type="number" name="age" placeholder="Age" required>
+                                        <span class="icon is-small left"><i class="mdi mdi-asterisk"></i></span>
+                                        @if ($errors->has('age'))
+                                            <span class="text-danger">{{ $errors->first('age') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="control icons-left icons-right">
+                                        <textarea class="input" name="address" placeholder="Address" ></textarea>
+                                        <span class="icon is-small left"><i class="mdi mdi-asterisk"></i></span>
+                                        @if ($errors->has('address'))
+                                            <span class="text-danger">{{ $errors->first('address') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                         <hr>

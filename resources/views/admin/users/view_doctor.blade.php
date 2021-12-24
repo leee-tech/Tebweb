@@ -8,7 +8,7 @@
                     <li>Admin</li>
                     <li>Management Doctors</li>
                 </ul>
-                <a href="{{route('doctors.create')}}"  class="button blue">
+                <a href="{{route('users.create')}}"  class="button blue">
                     <span>Create</span>
                 </a>
 
@@ -21,23 +21,33 @@
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Phone</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Hospital</th>
                     <th>Department</th>
-                    <th>Position</th>
+
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($doctors as $d)
+                @foreach($users as $d)
                 <tr>
 
-                    <td data-label="Name">{{$d->user['first_name']. ' '. $d->user['last_name']}}</td>
-                    <td data-label="Company">{{$d->user['email']}}</td>
-                    <td data-label="City">{{$d->department['name']}}</td>
-                    <td data-label="City">{{$d->position}}</td>
+                    <td data-label="Name">{{$d->first_name. ' '. $d->last_name}}</td>
+                    <td data-label="Email">{{$d->email}}</td>
+                    <td data-label="Phone">{{$d->phone}}
+                    <td data-label="Age">{{$d->age}}</td>
+                    <td data-label="Gender">{{$d->gender}}</td>
+                    <td data-label="Hospital">{{$d->hospital->name ?? ''}}</td>
+                    <td data-label="Department">{{$d->department->name ?? ''}}</td>
+
+
+                    {{--                    <td data-label="City">{{$d->position}}</td>--}}
 
                     <td class="actions-cell">
                         <div class="buttons right nowrap">
-                            <a href="{{route('doctors.edit',$d->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
+                            <a href="{{route('users.edit',$d->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
                                 <span class="icon"><i class="mdi mdi-eye"></i></span>
                             </a>
                             <button class="button small red --jb-modal" data-target="sample-modal" type="button">

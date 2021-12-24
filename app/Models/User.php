@@ -19,35 +19,25 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
+        'first_name','last_name','gender','age','phone','address',
         'email',
         'password',
+        'description','department_id','hospital_id'
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function patient()
-    {
-        return $this->hasOne(Patient::class, 'user_id');
+   public function hospital(){
+       return $this->belongsTo(Hospital::class,'hospital_id');
     }
-    public function doctor()
-    {
-        return $this->hasOne(Doctor::class, 'user_id');
+    public function department(){
+       return  $this->belongsTo(Department::class,'department_id');
     }
+
 }

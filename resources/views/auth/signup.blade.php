@@ -24,67 +24,77 @@
                     <div class="field spaced">
                         <label class="label">First Name</label>
                         <div class="control icons-left">
-                            <input class="input" type="text" name="first_name" placeholder="First Name" autocomplete="username">
+                            <input class="input" type="text" name="first_name" placeholder="First Name" required>
                             <span class="icon is-small left"><i class="mdi mdi-account"></i></span>
                             @if ($errors->has('first_name'))
                                 <span class="text-danger">{{ $errors->first('first_name') }}</span>
                             @endif
                         </div>
-                        <p class="help">
-                            Please enter your First Name
-                        </p>
+
                     </div>
                     <div class="field spaced">
                         <label class="label">Last Name</label>
                         <div class="control icons-left">
-                            <input class="input" type="text" name="last_name" placeholder="Last Name" autocomplete="username">
+                            <input class="input" type="text" name="last_name" placeholder="Last Name" required>
                             <span class="icon is-small left"><i class="mdi mdi-account"></i></span>
                             @if ($errors->has('last_name'))
                                 <span class="text-danger">{{ $errors->first('last_name') }}</span>
                             @endif
                         </div>
-                        <p class="help">
-                            Please enter your Last Name
-                        </p>
+
+                    </div>
+                    <div class="field spaced">
+                        <label class="label">Phone</label>
+                        <div class="control icons-left">
+                            <input class="input" type="text" name="phone" placeholder="Phone" required>
+                            <span class="icon is-small left"><i class="mdi mdi-account"></i></span>
+                            @if ($errors->has('phone'))
+                                <span class="text-danger">{{ $errors->first('phone') }}</span>
+                            @endif
+                        </div>
                     </div>
                     <div class="field spaced">
                         <label class="label">Email</label>
                         <div class="control icons-left">
-                            <input class="input" type="text" name="email" placeholder="user@example.com" autocomplete="username">
+                            <input class="input" type="text" name="email" placeholder="user@example.com" required>
                             <span class="icon is-small left"><i class="mdi mdi-account"></i></span>
                             @if ($errors->has('email'))
                                 <span class="text-danger">{{ $errors->first('email') }}</span>
                             @endif
                         </div>
-                        <p class="help">
-                            Please enter your Email
-                        </p>
                     </div>
                     <div class="field spaced">
                         <label class="label">Password</label>
                         <p class="control icons-left">
-                            <input class="input" type="password" name="password" placeholder="Password" autocomplete="current-password">
+                            <input class="input" type="password" name="password" placeholder="Password" required>
                             <span class="icon is-small left"><i class="mdi mdi-asterisk"></i></span>
                             @if ($errors->has('password'))
                                 <span class="text-danger">{{ $errors->first('password') }}</span>
                             @endif
                         </p>
-                        <p class="help">
-                            Please enter your password
-                        </p>
                     </div>
                     <div class="field spaced">
                         <label class="label">Age</label>
                         <p class="control icons-left">
-                            <input class="input" type="number" name="age" placeholder="Age" autocomplete="current-password">
+                            <input class="input" type="number" name="age" placeholder="Age" required>
                             <span class="icon is-small left"><i class="mdi mdi-asterisk"></i></span>
                             @if ($errors->has('age'))
                                 <span class="text-danger">{{ $errors->first('age') }}</span>
                             @endif
                         </p>
-                        <p class="help">
-                            Please enter your Age
+
+                    </div>
+                    <div class="field spaced">
+                        <label class="label">Gender</label>
+                        <p class="control icons-left">
+                            <select class="input"  name="gender" required>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+
+                            </select>
+                            <span class="icon is-small left"><i class="mdi mdi-asterisk"></i></span>
                         </p>
+
                     </div>
 
                     <div class="field spaced">
@@ -96,9 +106,7 @@
                                 <span class="text-danger">{{ $errors->first('address') }}</span>
                             @endif
                         </p>
-                        <p class="help">
-                            Please enter your Address
-                        </p>
+
                     </div>
 
 

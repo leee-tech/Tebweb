@@ -50,9 +50,9 @@ class DepartmentController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate(['name' => 'required']);
-        $data = $request->only('name');
+        $input= $request->only('name');
         $department = Department::find($id);
-        $department->update($data);
+        $department->update($input);
         return redirect()->route('departments.index')->with('success','Update successfully!');
 
     }

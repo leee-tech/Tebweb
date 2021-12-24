@@ -27,12 +27,11 @@ class AuthController extends Controller
             'first_name' => $register_data['first_name'],
             'last_name' => $register_data['last_name'],
             "password" => Hash::make($register_data['password']),
-        ]);
-       $patient_id = DB::table('patients')->insertOrIgnore([
-            "user_id" => $id,
-            'age'=>$register_data['age'],
-            'address'=>$register_data['address'],
-            "created_at" =>  Carbon::now(),
+            'gender'=>$register_data['gender'],
+            'age' => $register_data['age'],
+            'phone' => $register_data['phone'],
+            'address' => $register_data['address'] ?? null,
+
         ]);
         $user = User::find($id);
         $user->assignRole('patient');
@@ -53,6 +52,9 @@ class AuthController extends Controller
                 return redirect(route('admin.dashboard'));
             }else if($user->hasRole('patient')){
                 return redirect(route('patient.dashboard'));
+            }else{
+                return redirect(route('doctor.dashboard'));
+
             }
         }
         return redirect(route('login.index'))->withSuccess('Login details are not valid');

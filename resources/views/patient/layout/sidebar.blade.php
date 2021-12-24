@@ -103,11 +103,24 @@
         <p class="menu-label">Management</p>
         <ul class="menu-list">
             <li class="{{request()->is('admin/doctors') || request()->is('admin/doctors/*') ? 'active' : '' }}">
-                <a href="{{route('doctors.index')}}">
+                <a href="#">
                     <span class="icon"><i class="mdi mdi-table"></i></span>
                     <span class="menu-item-label">Doctor Management</span>
                 </a>
             </li>
+            <li class="{{request()->is('admin/doctors') || request()->is('admin/doctors/*') ? 'active' : '' }}">
+                <a href="{{route('bookings.index')}}">
+                    <span class="icon"><i class="mdi mdi-table"></i></span>
+                    <span class="menu-item-label">New appointment</span>
+                </a>
+            </li>
+            <li class="{{request()->is('admin/doctors') || request()->is('admin/doctors/*') ? 'active' : '' }}">
+                <a href="{{route('mybook')}}">
+                    <span class="icon"><i class="mdi mdi-table"></i></span>
+                    <span class="menu-item-label">My appointments</span>
+                </a>
+            </li>
+
             <li>
                 <a class="dropdown">
                     <span class="icon"><i class="mdi mdi-view-list"></i></span>

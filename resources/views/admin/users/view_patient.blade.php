@@ -21,27 +21,27 @@
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
+                    <th>Phone</th>
                     <th>Age</th>
-                    <th>Created</th>
+                    <th>Gender</th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($patients as $p)
+                @foreach($users as $d)
                 <tr>
 
-                    <td data-label="Name">{{$p->user['first_name']. ' '. $p->user['last_name']}}</td>
-                    <td data-label="Company">{{$p->user['email']}}</td>
-                    <td data-label="City">{{$p->age}}</td>
-                    <td data-label="City">{{$p->created_at}}</td>
+                    <td data-label="Name">{{$d->first_name. ' '. $d->last_name}}</td>
+                    <td data-label="Company">{{$d->email}}</td>
+                    <td data-label="City">{{$d->phone}}
+                    <td data-label="City">{{$d->age}}</td>
+                    <td data-label="City">{{$d->gender}}</td>
+                    {{--                    <td data-label="City">{{$d->position}}</td>--}}
 
                     <td class="actions-cell">
                         <div class="buttons right nowrap">
-                            <a href="{{route('patients.edit',$p->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
+                            <a href="{{route('patients.edit',$d->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
                                 <span class="icon"><i class="mdi mdi-eye"></i></span>
-                            </a>
-                            <a href="{{route('patients.edit',$p->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
-                                <span class="icon"><i class="mdi mdi-file-account"></i></span>
                             </a>
                             <button class="button small red --jb-modal" data-target="sample-modal" type="button">
                                 <span class="icon"><i class="mdi mdi-trash-can"></i></span>

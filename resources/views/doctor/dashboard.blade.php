@@ -1,4 +1,4 @@
-@extends('patient.layout.app')
+@extends('doctor.layout.app')
 @section('section')
 <div id="app">
 
@@ -7,7 +7,7 @@
     <section class="is-title-bar">
         <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
             <ul>
-                <li>Patient</li>
+                <li>Doctor</li>
                 <li>Dashboard</li>
             </ul>
 
@@ -47,7 +47,7 @@
                                 Doctors
                             </h3>
                             <h1>
-                                Not Select
+                                Not Selecct
                             </h1>
                         </div>
                         <span class="icon widget-icon text-blue-500"><i class="mdi mdi-cart-outline mdi-48px"></i></span>

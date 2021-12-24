@@ -6,7 +6,7 @@
             <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
                 <ul>
                     <li>Admin</li>
-                    <li>Management Hospital</li>
+                    <li>Hospitals</li>
                 </ul>
                 <a href="{{route('hospitals.create')}}"  class="button blue">
                     <span>Create</span>
