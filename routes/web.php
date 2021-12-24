@@ -57,18 +57,18 @@ Route::get('/logout', [AuthController::class,'logout'])->name('logout');
 
 
 Route::group(['middleware' => ['role:patient']], function () {
-    Route::get('/patient/dashboard', [DashboardController::class, 'indexPatient'])->name('patient.dashboard');
     Route::resource('/patient/bookings',BookingController::class);
-    Route::get('patient/new-appointment/{doctorId}/{date}', [AppointmentController::class,'showAppointment'])->name('create.appointment');
+    Route::get('patient/bookings/new-appointment/{doctorId}/{date}', [BookingController::class,'showAppointment'])->name('create.appointment');
     Route::get('patient/my-booking', [BookingController::class,'myBook'])->name('mybook');
 });
 Route::group(['middleware' => ['role:doctor']], function () {
-    Route::get('/doctor/dashboard', [DashboardController::class, 'indexDoctor'])->name('doctor.dashboard');
     Route::resource('/doctor/appointments',AppointmentController::class);
     Route::post('doctor/appointments/check', [AppointmentController::class, 'check'])->name('appointments.check');
     Route::post('doctor/appointments/update',  [AppointmentController::class, 'updateTime'])->name('appointments.updateTime');
     Route::get('doctor/my-appointments',  [BookingController::class, 'myBookDoctor'])->name('appointments.my-book-doctor');
     Route::get('doctor/my-appointments/{booking}/create-prescription',  [BookingController::class, 'createPrescription'])->name('appointments.prescription.create');
     Route::post('doctor/my-appointments/{booking}/create-prescription',  [BookingController::class, 'PrescriptionStore'])->name('appointments.prescription.store');
+    Route::get('doctor/my-appointments/{booking}/show-prescription',  [BookingController::class, 'ShowPrescription'])->name('appointments.prescription.show');
+    Route::get('doctor/my-appointments/{booking}/change-status',[BookingController::class, 'UpdateStatusBooking'])->name('appointments.booking.update-status');
 
 });

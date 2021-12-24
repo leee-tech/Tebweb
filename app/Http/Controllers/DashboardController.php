@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Doctor;
-use App\Models\Patient;
+use App\Models\Booking;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -13,9 +14,7 @@ class DashboardController extends Controller
         $count_d = 2;//select *
         return view('admin.dashboard',compact('count_p','count_d'));
     }
-    function indexPatient(){
-        return view('patient.dashboard');
-    }
+//
     function indexDoctor(){
         return view('doctor.dashboard');
     }

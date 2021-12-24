@@ -1,7 +1,19 @@
 @extends('doctor.layout.app')
 @section('section')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{{--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--}}
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/south-street/jquery-ui.css" rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://keith-wood.name/js/jquery.signature.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="http://keith-wood.name/css/jquery.signature.css">
+<style>
+    .kbw-signature { width: 100%; height: 100px;}
+    #sig canvas{
+        width: 100% !important;
+        height: auto;
+    }
+</style>
     <div id="app">
         <section class="is-title-bar">
             <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
@@ -36,35 +48,68 @@
                         @csrf
                         <table>
                             <thead class="ttttttttttt">
+                            <tr >
+                                <th scope="col">
+                         Disease
+                                </th>
+                                <th scope="col">
+ Drug
+                                </th>
+                                <th scope="col">
+                                    Usage Instruction
+                                </th>
+                                <th scope="col">
+                                    Feedback
+                                </th>
+
+                            </tr>
+
                             <tr id="trxxx">
                                 <th scope="col">
-                                    <input class="input" type="text"  name="symptoms[]" placeholder="Symptom" required>
+                                    <div class="select is-fullwidth">
+                                        <select class="form-control" name="disease_id[]" required>
+                                            @foreach ($diseases as $key)
+                                                <option value="{{ $key->id }}">
+                                                    {{ $key->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </th>
                                 <th scope="col">
-                                    <input class="input" type="text"  name="medicines[]" placeholder="Medicine">
+                                    <div class="select is-fullwidth">
+
+                                    <select class="form-control" name="drug_id[]" required>
+
+                                        @foreach ($drugs as $key)
+                                            <option value="{{ $key->id }}">
+                                                {{ $key->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    </div>
                                 </th>
                                 <th scope="col">
-                                    <input class="input" type="text"  name="usage_instructions[]" placeholder="Usage Instruction">
+                                    <input class="input" type="text"  name="usage_instruction[]" required placeholder="Usage Instruction">
                                 </th>
                                 <th scope="col">
-                                    <input class="input" type="text"  name="feedbacks[]" placeholder="Feedback">
+                                    <input class="input" type="text"  name="feedback[]" required placeholder="Feedback">
                                 </th>
-{{--                                <th scope="col">--}}
-{{--                                    <input class="input" type="text" id="name" name="name[]" placeholder="Name">--}}
-{{--                                </th>--}}
-{{--                                <th scope="col">--}}
-{{--                                    <input class="input" type="text" id="name" name="name[]" placeholder="Name">--}}
-{{--                                </th>--}}
                                 <th scope="col">
-                                    <a href="#"  class="xxxxx">
-                                        Submit
+                                    <a href="#"  class="button small green --jb-modal xxxxx">
+                                        <span class="icon"><i class="mdi mdi-clipboard-plus"></i></span>
                                     </a>
                                 </th>
                             </tr>
 
                             </thead>
                         </table>
-
+                        <div class="col-md-12">
+                            <div id="sig" ></div>
+                            <br/>
+                            <button id="clear" class="btn btn-danger btn-sm">Clear Signature</button>
+                            <textarea id="signature64" name="signed" style="display: none"></textarea>
+                        </div>
 
 
                         <div class="field grouped">
@@ -80,6 +125,14 @@
         </section>
 
     </div>
+<script type="text/javascript">
+    var sig = $('#sig').signature({syncField: '#signature64', syncFormat: 'PNG'});
+    $('#clear').click(function(e) {
+        e.preventDefault();
+        sig.signature('clear');
+        $("#signature64").val('');
+    });
+</script>
     <script type="text/javascript">
         $(document).ready(function(){
             var counter = 0;
@@ -87,7 +140,7 @@
                 var whole_extra_item_add = $('#trxxx').html();
                 console.log('<tr>'+whole_extra_item_add+'<tr/>');
 
-                $(this).closest(".ttttttttttt").append('<tr class="rerr">'+whole_extra_item_add+'  <th scope="col"> <a href="#" class="removebtn">Remove </a> </th><tr/>');
+                $(this).closest(".ttttttttttt").append('<tr class="rerr">'+whole_extra_item_add+'  <th scope="col"> <a href="#" class="button small red --jb-modal removebtn"> <span class="icon"><i class="mdi mdi-delete-forever"></i></span> </a> </th><tr/>');
                 counter++;
             });
             $(document).on("click",'.removebtn',function(event){

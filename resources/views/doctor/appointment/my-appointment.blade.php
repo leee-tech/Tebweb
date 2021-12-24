@@ -40,13 +40,20 @@
                         </td>
                         <td class="actions-cell">
                             <div class="buttons right nowrap">
+                                @if ($appointment->status == 0)
                                 <a href="{{route('appointments.prescription.create',$appointment->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
                                     <span class="icon"><i class="mdi mdi-medical-bag"></i></span>
                                 </a>
-                                <a href="#" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
+                                @endif
+                                <a href="{{route('appointments.prescription.show',$appointment->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
                                     <span class="icon"><i class="mdi mdi-wallet-travel"></i></span>
                                 </a>
+                                    @if ($appointment->status == 0)
 
+                                    <a href="{{route('appointments.booking.update-status',$appointment->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
+                                    <span class="icon"><i class="mdi mdi-wallet-travel"></i></span>
+                                </a>
+                                    @endif
                             </div>
                         </td>
 

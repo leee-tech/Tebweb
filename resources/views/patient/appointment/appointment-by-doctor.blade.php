@@ -31,21 +31,24 @@
             <div class="card-content">
                 <form action="{{route('bookings.store')}}" method="post">
                     @csrf
-
+                    <table>
+                        <thead>
                                 @foreach ($times as $time)
-                                    <div class="col-md-3">
-                                        <label class="btn btn-outline-primary btn-block">
-                                            <input type="radio" name="time" value="{{ $time->time }}">
-                                            <span>{{ $time->time }}</span>
-                                        </label>
-                                    </div>
-                                    <input type="hidden" name="doctorId" value="{{ $doctor_id }}">
-                                    <input type="hidden" name="appointmentId" value="{{ $time->appointment_id }}">
-                                    <input type="hidden" name="date" value="{{ $date }}">
-                                @endforeach
 
+                            <tr>
+                                <th scope="col"> <label class="btn btn-outline-primary btn-block">
+                                        <input type="radio" name="time" value="{{ $time->time }}">
+                                        <span>{{ $time->time }}</span>
+                                    </label></th>
+                                <input type="hidden" name="doctorId" value="{{ $doctor_id }}">
+                                <input type="hidden" name="appointmentId" value="{{ $time->appointment_id }}">
+                                <input type="hidden" name="date" value="{{ $date }}">
+                            </tr>
+                                @endforeach
+                        </thead>
+                    </table>
                     <div class="card-footer">
-                        <button type="submit" class="button blue">Book Appointment</button>
+                        <button type="submit" class="button green">Book Appointment</button>
                     </div>
 
                 </form>

@@ -19,6 +19,7 @@ class CreateBookingsTable extends Migration
             $table->unsignedBigInteger('doctor_id');
             $table->string('time');
             $table->string('date');
+            $table->string('signature')->nullable();//image path
             $table->integer('status')->default(0);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('doctor_id')->references('id')->on('users')->onDelete('cascade');

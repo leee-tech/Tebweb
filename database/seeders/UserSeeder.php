@@ -17,11 +17,25 @@ class UserSeeder extends Seeder
     public function run()
     {
         $user = User::create([
-            'email' => 'admin@smartlife.ws',
-            'first_name' => 'Mohammad',
-            'last_name' => 'Test',
+            'email' => 'fawzi@gmail.com',
+            'first_name' => 'Fawzi',
+            'last_name' => 'Alshiyyab',
             'password' => bcrypt('123456'),
         ]);
         $user->assignRole('admin');
+        $user = User::create([
+            'email' => 'doctor@gmail.com',
+            'first_name' => 'Doctor',
+            'last_name' => 'Doctor',
+            'password' => bcrypt('123456'),
+        ]);
+        $user->assignRole('doctor');
+        $user = User::create([
+            'email' => 'patient@gmail.com',
+            'first_name' => 'Patient',
+            'last_name' => 'Patient',
+            'password' => bcrypt('123456'),
+        ]);
+        $user->assignRole('patient');
     }
 }

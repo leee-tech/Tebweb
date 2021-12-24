@@ -115,12 +115,5 @@ class AppointmentController extends Controller
     {
         //
     }
-    public function showAppointment($doctorId, $date){
-        $appointment = Appointment::where('user_id', $doctorId)->where('date', $date)->first();
-        $times = Time::where('appointment_id', $appointment->id)->where('status', 0)->get();
-        $user = User::with(['department','hospital'])->where('id', $doctorId)->first();
-        $doctor_id = $doctorId;
-        return view('patient.appointment.appointment-by-doctor', compact('times', 'date', 'user', 'doctor_id'));
 
-    }
 }

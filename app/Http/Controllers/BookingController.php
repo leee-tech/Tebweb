@@ -4,30 +4,52 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use App\Models\Booking;
+use App\Models\Department;
+use App\Models\Disease;
+use App\Models\Drug;
+use App\Models\Hospital;
+use App\Models\Prescription;
 use App\Models\Time;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookingController extends Controller
 {
 
     public function index(Request $request)
     {
+        $departments = Department::all();
         date_default_timezone_set('America/New_York');
-        if (request('date')) {
-            $formatDate = date('Y-m-d', strtotime(request('date')));
-            $doctors = Appointment::with('doctor')->where('date', $formatDate)->get();
-            return view('patient.booking.view', compact('doctors', 'formatDate'));
-        };
+        if($request->department_id !=0 && !$request->date){
+            $doctors = User::where('department_id',$request->department_id)->get('id');
+            $doctors = Appointment::with('doctor')->whereIn('user_id',$doctors)->get();
+            return view('patient.booking.view', compact('doctors','departments'));
+
+        }
+        if ($request->date) {
+            $formatDate = date('Y-m-d', strtotime($request->date));
+            if($request->department_id !=0){
+                $doctors = User::where('department_id',$request->department_id)->get('id');
+                $doctors = Appointment::with('doctor')->whereIn('user_id',$doctors)->where('date', $formatDate)->get();
+            }else{
+                $doctors = Appointment::with('doctor')->where('date', $formatDate)->get();
+            }
+            return view('patient.booking.view', compact('doctors', 'formatDate','departments'));
+        }
         $doctors = Appointment::where('date', date('Y-m-d'))->get();
-        return view('patient.booking.view', compact('doctors'));
+        return view('patient.booking.view', compact('doctors','departments'));
     }
     public function myBook(){
         $appointments = Booking::latest()->where('user_id', auth()->user()->id)->get();
         return view('patient.booking.booking-list', compact('appointments'));
 
     }
-    public function myBookDoctor(){
+    public function myBookDoctor(Request $request){
+        if(isset($request->date)){
+            $appointments = Booking::latest()->where('date',$request->date)->where('doctor_id', auth()->user()->id)->get();
+            return view('doctor.appointment.my-appointment', compact('appointments'));
+        }
         $appointments = Booking::latest()->where('doctor_id', auth()->user()->id)->get();
         return view('doctor.appointment.my-appointment', compact('appointments'));
     }
@@ -39,7 +61,8 @@ class BookingController extends Controller
     {
         return Booking::orderby('id', 'desc')
             ->where('user_id', auth()->user()->id)
-            ->whereDate('created_at', date('Y-m-d'))
+            ->whereDate('date', date('Y-m-d'))
+            ->where('status',0)
             ->exists();
     }
     public function store(Request $request)
@@ -86,10 +109,43 @@ class BookingController extends Controller
         //
     }
     public function createPrescription(Booking $booking){
-        return view('doctor.appointment.create-prescription',compact('booking'));
+        $drugs = Drug::all();
+        $diseases = Disease::all();
+        return view('doctor.appointment.create-prescription',compact('booking','drugs','diseases'));
     }
     public function PrescriptionStore(Request $request,Booking $booking){
-        dd($request->all());
-//        return view('doctor.appointment.create-prescription',compact('booking'));
+        $prescriptions = $request->all();
+        $count = count($request->disease_id);
+        if ($count !=NULL) {
+            for ($i=0; $i <$count ; $i++) {
+                $prescription = new Prescription();
+                $prescription->user_id = $booking->user_id;
+                $prescription->doctor_id = Auth()->user()->id;
+                $prescription->book_id = $booking->id;
+                $prescription->disease_id = $request->disease_id[$i];
+                $prescription->drug_id = $request->drug_id[$i];
+                $prescription->usage_instruction = $request->usage_instruction[$i];
+                $prescription->feedback = $request->feedback[$i];
+                $prescription->save();
+            }
+        }
+        return redirect()->route('appointments.my-book-doctor')->with('message', 'Your appointment was booked for ');
+    }
+    public function ShowPrescription(Booking $booking){
+        $prescriptions = Prescription::where('book_id',$booking->id)->get();
+        return view('doctor.appointment.show-prescription',compact('prescriptions','booking'));
+    }
+    public function UpdateStatusBooking(Booking $booking){
+        $booking->update(['status'=>1]);
+        return redirect()->route('appointments.my-book-doctor')->with('message', 'Your appointment was booked for ');
+
+    }
+    public function showAppointment($doctorId, $date){
+        $appointment = Appointment::where('user_id', $doctorId)->where('date', $date)->first();
+        $times = Time::where('appointment_id', $appointment->id)->where('status', 0)->get();
+        $user = User::with(['department','hospital'])->where('id', $doctorId)->first();
+        $doctor_id = $doctorId;
+        return view('patient.appointment.appointment-by-doctor', compact('times', 'date', 'user', 'doctor_id'));
+
     }
 }

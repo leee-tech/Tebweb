@@ -5,7 +5,7 @@
             <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
                 <ul>
                     <li>Appointment</li>
-                    <li>Booking</li>
+                    <li>New Appointment</li>
 
                 </ul>
 
@@ -16,14 +16,14 @@
                 <header class="card-header">
                     <p class="card-header-title">
                         <span class="icon"><i class="mdi mdi-ballot"></i></span>
-                        Forms
+                        Search
                     </p>
                 </header>
                 <div class="card-content">
                     <form method="GET" action="{{route('bookings.index')}}">
 
                         <div class="field">
-                            <label class="label">From</label>
+                            <label class="label">Date</label>
                             <div class="field-body">
                                 <div class="field">
                                     <div class="control icons-left">
@@ -34,6 +34,21 @@
 
                             </div>
                         </div>
+                        <div class="field">
+                            <label class="label">Department</label>
+                            <div class="select is-fullwidth">
+
+                            <select class="form-control" name="department_id">
+                                <option value="0">Select Department</option>
+                                @foreach ($departments as $key)
+                                    <option value="{{ $key->id }}">
+                                        {{ $key->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            </div>
+                        </div>
+
                         <button type="submit" class="button blue">Check</button>
 
                     </form>
@@ -51,7 +66,9 @@
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>Expertise</th>
+                                <th>Department</th>
+                                <th>Hospital</th>
+                                <th>Date</th>
                                 <th>Book</th>
                             </tr>
                             </thead>
@@ -60,11 +77,14 @@
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
 
-                                    <td>{{ $doctor->doctor->first_name }}</td>
+                                    <td>{{ $doctor->doctor->first_name .' '.$doctor->doctor->last_name}}</td>
                                     <td>{{ $doctor->doctor->department->name }}</td>
-                                        <td>
+                                    <td>{{ $doctor->doctor->hospital->name }}</td>
+                                    <td>{{ $doctor->date }}</td>
+
+                                    <td>
                                             <a href="{{ route('create.appointment', [$doctor->user_id, $doctor->date]) }}"><button
-                                                    class="btn btn-primary">Appointment</button></a>
+                                                    class="button green">Appointment</button></a>
                                         </td>
 
                                 </tr>
