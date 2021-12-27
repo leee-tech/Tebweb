@@ -28,15 +28,15 @@
 				<div class="wrap">
 				<!--start-logo-->
 				<div class="logo">
-					<a href="index.html" style="font-size: 30px;">Tebweb</a>
+					<a href="/" style="font-size: 30px;">Tebweb</a>
 				</div>
 				<!--end-logo-->
 				<!--start-top-nav-->
 				<div class="top-nav">
 					<ul>
-						<li class="active"><a href="index.html">Home</a></li>
+						<li class="active"><a href="/">Home</a></li>
 
-						<li><a href="contact.php">contact</a></li>
+						<li><a href="#">contact</a></li>
 					</ul>
 				</div>
 				<div class="clear"> </div>
@@ -79,7 +79,7 @@
 					<div class="text list_1_of_2">
 						  <h3>Doctors Login</h3>
 
-						  <div class="button"><span><a href="#">Click Here</a></span></div>
+						  <div class="button"><span><a href="{{route('login.index')}}">Click Here</a></span></div>
 					</div>
 				</div>
 
@@ -92,7 +92,7 @@
 					<div class="text list_1_of_2">
 						  <h3>Admin Login</h3>
 
-						  <div class="button"><span><a href="hms/admin">Click Here</a></span></div>
+						  <div class="button"><span><a href="{{route('login.index')}}">Click Here</a></span></div>
 				     </div>
 				</div>
 			</div>
@@ -119,8 +119,8 @@
 		   	 <div class="wrap">
 		   	<div class="footer-left">
 		   			<ul>
-						<li><a href="index.html">Home</a></li>
-						<li><a href="contact.php">contact</a></li>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">contact</a></li>
 					</ul>
 		   	</div>
 
