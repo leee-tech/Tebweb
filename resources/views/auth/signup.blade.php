@@ -19,7 +19,7 @@
                 </p>
             </header>
             <div class="card-content">
-                <form method="POST" action="/signup">
+                <form method="POST" action="{{route('signup.store')}}">
                     @csrf
                     <div class="field spaced">
                         <label class="label">First Name</label>

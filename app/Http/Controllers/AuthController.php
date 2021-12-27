@@ -12,9 +12,6 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function index(){
-        return view('auth.login');
-    }
 
     public function signup(){
         return view('auth.signup');
@@ -22,7 +19,8 @@ class AuthController extends Controller
 
     public function signupStore(Request $request){
         $register_data = $request->all();
-        $id = DB::table('users')->insertGetId([
+        //insert into users
+        $user = User::create([
             "email" => $register_data["email"],
             'first_name' => $register_data['first_name'],
             'last_name' => $register_data['last_name'],
@@ -31,34 +29,36 @@ class AuthController extends Controller
             'age' => $register_data['age'],
             'phone' => $register_data['phone'],
             'address' => $register_data['address'] ?? null,
-
         ]);
-        $user = User::find($id);
+        //select * from users where id =
+        $user = User::find($user->id);
         $user->assignRole('patient');
         return redirect()->route('login.index')->with('success','Added successful');
-
     }
-    public function login(Request $request)
-    {
 
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
-        $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            $user = User::where('email', $credentials['email'])->first();
+    //Request $request=>
+    public function index(){
+        return view('auth.login');
+    }
+    public function authLogin(Request $request)
+    {
+        $auth = $request->only('email', 'password');
+
+        if (Auth::attempt($auth)) {
+            //where email = $auth['email'] limit 1
+            $user = User::where('email', $auth['email'])->first();
+
             if($user->hasRole('admin')){
                 return redirect(route('admin.dashboard'));
             }else if($user->hasRole('patient')){
                 return redirect(route('bookings.index'));
-            }else{
+            }else if($user->hasRole('doctor')){
                 return redirect(route('appointments.create'));
-
             }
         }
-        return redirect(route('login.index'))->withSuccess('Login details are not valid');
+        return redirect(route('login.index'))->withErrors('Login details are not valid');
     }
+
     public function logout(){
         Auth::logout();
         return redirect(route('login.index'));

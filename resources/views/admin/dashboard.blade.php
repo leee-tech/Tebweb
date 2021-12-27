@@ -50,7 +50,7 @@
                                 {{$count_d}}
                             </h1>
                         </div>
-                        <span class="icon widget-icon text-blue-500"><i class="mdi mdi-cart-outline mdi-48px"></i></span>
+                        <span class="icon widget-icon text-blue-500"><i class="mdi mdi-account-card-details mdi-48px"></i></span>
                     </div>
                 </div>
             </div>
@@ -60,13 +60,13 @@
                     <div class="flex items-center justify-between">
                         <div class="widget-label">
                             <h3>
-                                Performance
+                                Hospitals
                             </h3>
                             <h1>
-                                256%
+                                {{$count_hospital}}
                             </h1>
                         </div>
-                        <span class="icon widget-icon text-red-500"><i class="mdi mdi-finance mdi-48px"></i></span>
+                        <span class="icon widget-icon text-red-500"><i class="mdi mdi-hospital-building mdi-48px"></i></span>
                     </div>
                 </div>
             </div>

@@ -50,9 +50,7 @@ class UserController extends Controller
     }
 
 
-    public function show($id)
-    {
-    }
+
 
 
     public function edit($id)

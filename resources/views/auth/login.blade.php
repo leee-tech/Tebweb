@@ -16,7 +16,7 @@
                 </p>
             </header>
             <div class="card-content">
-                <form method="POST" action="{{route('login')}}">
+                <form method="POST" action="{{route('auth.login')}}">
                     @csrf
                     <div class="field spaced">
                         <label class="label">Login</label>
