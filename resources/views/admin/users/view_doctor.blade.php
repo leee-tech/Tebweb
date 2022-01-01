@@ -12,7 +12,11 @@
                     <span>Create</span>
                 </a>
 
+
             </div>
+            <a href="{{route('users.index',['active'=>1])}}"  class="button blue">
+                <span>Doctors Un Active</span>
+            </a>
         </section>
 
         <section class="section main-section">
@@ -50,6 +54,15 @@
                             <a href="{{route('users.edit',$d->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
                                 <span class="icon"><i class="mdi mdi-eye"></i></span>
                             </a>
+                            @if($d->active == 0)
+                            <a href="{{route('doctor.active',$d->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
+                                <span class="icon"><i class="mdi mdi-account-check"></i></span>
+                            </a>
+                            @else
+                            <a href="{{route('doctor.unactive',$d->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
+                                <span class="icon"><i class="mdi mdi-block-helper"></i></span>
+                            </a>
+                            @endif
                             <button class="button small red --jb-modal" data-target="sample-modal" type="button">
                                 <span class="icon"><i class="mdi mdi-trash-can"></i></span>
                             </button>

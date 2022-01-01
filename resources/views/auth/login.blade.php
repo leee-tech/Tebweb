@@ -1,6 +1,7 @@
 @extends('layout.app')
 
 @section('section')
+
     <title>Login</title>
 
     <body>
@@ -45,6 +46,7 @@
                             Please enter your password
                         </p>
                     </div>
+                    @include('flash-message')
 
 
 
@@ -57,6 +59,9 @@
                             </button>
                             <a href="{{route('signup')}}" class="button red">
                                 Register
+                            </a>
+                            <a href="{{route('doctor.signup')}}" class="button green">
+                                Register Doctor
                             </a>
                         </div>
 

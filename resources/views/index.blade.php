@@ -36,7 +36,6 @@
 					<ul>
 						<li class="active"><a href="/">Home</a></li>
 
-						<li><a href="#">contact</a></li>
 					</ul>
 				</div>
 				<div class="clear"> </div>
@@ -119,8 +118,7 @@
 		   	 <div class="wrap">
 		   	<div class="footer-left">
 		   			<ul>
-						<li><a href="#">Home</a></li>
-						<li><a href="#">contact</a></li>
+						<li><a href="/">Home</a></li>
 					</ul>
 		   	</div>
 

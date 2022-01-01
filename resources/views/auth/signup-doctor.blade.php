@@ -7,8 +7,10 @@
 <br/>
 <br/>
 <br/>
+<br/>
+<br/>
 @section('section')
-    <title>Register</title>
+    <title>Register Doctor</title>
 
     <body>
 
@@ -23,7 +25,7 @@
                 </p>
             </header>
             <div class="card-content">
-                <form method="POST" action="{{route('signup.store')}}">
+                <form method="POST" action="{{route('doctor.signup.store')}}">
                     @csrf
                     <div class="field spaced">
                         <label class="label">First Name</label>
@@ -87,6 +89,38 @@
                             @endif
                         </p>
 
+                    </div>
+                    <div class="field spaced">
+                        <label class="label">Hospital</label>
+
+                        <div class="control icons-left icons-right">
+                            <div class="select is-fullwidth">
+                                <select class="form-control" name="hospital_id">
+                                    @foreach ($hospitals as $key)
+                                        <option value="{{ $key->id }}">
+                                            {{ $key->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <span class="icon left"><i class="mdi mdi-adjust"></i></span>
+                        </div>
+                    </div>
+                    <div class="field spaced">
+                        <label class="label">Department</label>
+
+                        <div class="control icons-left icons-right">
+                            <div class="select is-fullwidth">
+                                <select class="form-control" name="department_id">
+                                    @foreach ($departments as $key)
+                                        <option value="{{ $key->id }}">
+                                            {{ $key->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <span class="icon left"><i class="mdi mdi-adjust"></i></span>
+                        </div>
                     </div>
                     <div class="field spaced">
                         <label class="label">Gender</label>

@@ -12,9 +12,14 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::role('doctor')->with(['hospital','department'])->paginate(10);
+        if($request->active){
+            $users = User::role('doctor')->where('active',0)->with(['hospital','department'])->paginate(10);
+
+        }else{
+            $users = User::role('doctor')->where('active',1)->with(['hospital','department'])->paginate(10);
+        }
         return view('admin.users.view_doctor',compact('users'));
     }
 
@@ -89,7 +94,16 @@ class UserController extends Controller
 
     }
 
+    public function ActiveDoctor(User $user){
+        $user->update(['active'=>1]);
+        return redirect()->route('users.index')->with('success','Doctor Active successful');
 
+    }
+    public function UnActiveDoctor(User $user){
+        $user->update(['active'=>0]);
+        return redirect()->route('users.index')->with('success','Doctor Un Active successful');
+
+    }
     public function destroy($id)
     {
 
