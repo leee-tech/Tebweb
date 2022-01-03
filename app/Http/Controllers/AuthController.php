@@ -84,7 +84,7 @@ class AuthController extends Controller
                 return redirect(route('bookings.index'));
             }else if($user->hasRole('doctor')){
                 if($user->active == 0){
-                    return redirect()->route('login.index')->with('error','Doctor Un Active');
+                    return redirect()->route('doctor.profile.show')->with('error','Doctor Un Active');
                 }
                 return redirect(route('appointments.create'));
             }

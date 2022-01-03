@@ -85,4 +85,6 @@ Route::group(['middleware' => ['role:patient']], function () {
     Route::resource('/patient/bookings',BookingController::class);
     Route::get('patient/bookings/new-appointment/{doctorId}/{date}', [BookingController::class,'showAppointment'])->name('create.appointment');
     Route::get('patient/my-booking', [BookingController::class,'myBook'])->name('mybook');
+    Route::get('patient/my-booking/{booking}/show-prescription', [BookingController::class,'ShowPrescriptionP'])->name('show.prescription');
+
 });

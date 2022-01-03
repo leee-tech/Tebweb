@@ -148,4 +148,8 @@ class BookingController extends Controller
         return view('patient.appointment.appointment-by-doctor', compact('times', 'date', 'user', 'doctor_id'));
 
     }
+    public function ShowPrescriptionP(Booking $booking){
+        $prescriptions = Prescription::where('book_id',$booking->id)->get();
+        return view('patient.booking.show-prescription',compact('prescriptions','booking'));
+    }
 }

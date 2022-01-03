@@ -5,7 +5,7 @@
         <section class="is-title-bar">
             <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
                 <ul>
-                    <li>Admin</li>
+                    <li>Paint</li>
                     <li>My Appointment</li>
                 </ul>
 
@@ -33,6 +33,7 @@
                             <td>{{ $appointment->time }}</td>
                             <td>{{ $appointment->date }}</td>
                             <td>{{ $appointment->created_at->format('Y-m-d') }}</td>
+
                             <td>
                                 @if ($appointment->status == 0)
                                     <p>Not Visited</p>
@@ -40,7 +41,15 @@
                                     <p>Checked-In</p>
                                 @endif
                             </td>
+                            <td class="actions-cell">
+                                <div class="buttons right nowrap">
+                                    <a href="{{route('show.prescription',$appointment->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
+                                        <span class="icon"><i class="mdi mdi-medical-bag"></i></span>
+                                    </a>
+                                </div>
+                            </td>
                         </tr>
+
                     @empty
                         <td>You have no any appointments</td>
                     @endforelse

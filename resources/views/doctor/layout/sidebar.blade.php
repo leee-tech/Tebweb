@@ -19,7 +19,7 @@
                     <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
                 </a>
                 <div class="navbar-dropdown">
-                    <a href="#" class="navbar-item">
+                    <a href="{{route('doctor.profile.edit')}}" class="navbar-item">
                         <span class="icon"><i class="mdi mdi-account"></i></span>
                         <span>My Profile</span>
                     </a>
