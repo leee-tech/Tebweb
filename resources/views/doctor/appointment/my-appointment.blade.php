@@ -51,7 +51,7 @@
                                     @if ($appointment->status == 0)
 
                                     <a href="{{route('appointments.booking.update-status',$appointment->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
-                                    <span class="icon"><i class="mdi mdi-wallet-travel"></i></span>
+                                    <span class="icon"><i class="mdi mdi-account-check"></i></span>
                                 </a>
                                     @endif
                             </div>

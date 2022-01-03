@@ -67,7 +67,7 @@
                             <tr id="trxxx">
                                 <th scope="col">
                                     <div class="select is-fullwidth">
-                                        <select class="form-control" name="disease_id[]" required>
+                                        <select class="select-x form-control"  name="disease_id[]" required>
                                             @foreach ($diseases as $key)
                                                 <option value="{{ $key->id }}">
                                                     {{ $key->name }}
@@ -79,14 +79,15 @@
                                 <th scope="col">
                                     <div class="select is-fullwidth">
 
-                                    <select class="form-control" name="drug_id[]" required>
-
+                                    <select class="select-x js-states form-control"  name="drug_id[]" required>
                                         @foreach ($drugs as $key)
                                             <option value="{{ $key->id }}">
                                                 {{ $key->name }}
                                             </option>
                                         @endforeach
                                     </select>
+                                        <input type="checkbox" name="222">
+
                                     </div>
                                 </th>
                                 <th scope="col">
@@ -125,6 +126,9 @@
         </section>
 
     </div>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
+
 <script type="text/javascript">
     var sig = $('#sig').signature({syncField: '#signature64', syncFormat: 'PNG'});
     $('#clear').click(function(e) {
@@ -133,7 +137,12 @@
         $("#signature64").val('');
     });
 </script>
+
     <script type="text/javascript">
+        $(document).ready(function() {
+            console.log('2')
+            $('.select-x').select2();
+        });
         $(document).ready(function(){
             var counter = 0;
             $(document).on("click",".xxxxx",function(){
