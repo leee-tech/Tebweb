@@ -48,6 +48,17 @@
 
                     </div>
                     <div class="field spaced">
+                        <label class="label">SSN</label>
+                        <div class="control icons-left">
+                            <input class="input" type="text" name="ssn" placeholder="SSN" required>
+                            <span class="icon is-small left"><i class="mdi mdi-account"></i></span>
+                            @if ($errors->has('ssn'))
+                                <span class="text-danger">{{ $errors->first('ssn') }}</span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="field spaced">
                         <label class="label">Phone</label>
                         <div class="control icons-left">
                             <input class="input" type="text" name="phone" placeholder="Phone" required>

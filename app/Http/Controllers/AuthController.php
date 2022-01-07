@@ -36,6 +36,7 @@ class AuthController extends Controller
             'age' => $register_data['age'],
             'phone' => $register_data['phone'],
             'address' => $register_data['address'] ?? null,
+            'ssn'=>$register_data['ssn']??null,
             'active'=>1
         ]);
         //select * from users where id =
@@ -73,7 +74,6 @@ class AuthController extends Controller
     public function authLogin(Request $request)
     {
         $auth = $request->only('email', 'password');
-
         if (Auth::attempt($auth)) {
             //where email = $auth['email'] limit 1
             $user = User::where('email', $auth['email'])->first();

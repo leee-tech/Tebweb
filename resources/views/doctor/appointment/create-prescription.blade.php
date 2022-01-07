@@ -50,10 +50,16 @@
                             <thead class="ttttttttttt">
                             <tr >
                                 <th scope="col">
-                         Disease
+                               Select Disease
                                 </th>
                                 <th scope="col">
- Drug
+                               Select Drug
+                                </th>
+                                <th scope="col">
+                                    New Disease
+                                </th>
+                                <th scope="col">
+                                    New Drug
                                 </th>
                                 <th scope="col">
                                     Usage Instruction
@@ -67,6 +73,7 @@
                             <tr id="trxxx">
                                 <th scope="col">
                                     <div class="select is-fullwidth">
+
                                         <select class="select-x form-control"  name="disease_id[]" required>
                                             @foreach ($diseases as $key)
                                                 <option value="{{ $key->id }}">
@@ -75,6 +82,7 @@
                                             @endforeach
                                         </select>
                                     </div>
+
                                 </th>
                                 <th scope="col">
                                     <div class="select is-fullwidth">
@@ -86,15 +94,25 @@
                                             </option>
                                         @endforeach
                                     </select>
-                                        <input type="checkbox" name="222">
 
                                     </div>
+                                </th>
+                                <th scope="col">
+                                    <input class="input" type="text"  name="disease[]" required placeholder="New Disease">
+                                </th>
+                                <th scope="col">
+                                    <input class="input" type="text"  name="drug[]" required placeholder="New Drug">
                                 </th>
                                 <th scope="col">
                                     <input class="input" type="text"  name="usage_instruction[]" required placeholder="Usage Instruction">
                                 </th>
                                 <th scope="col">
                                     <input class="input" type="text"  name="feedback[]" required placeholder="Feedback">
+                                </th>
+                                <th scope="col">
+                                    <a href="#"  class="button small green --jb-modal xxxxx">
+                                        <span class="icon"><i class="mdi mdi-clipboard-plus"></i></span>
+                                    </a>
                                 </th>
                                 <th scope="col">
                                     <a href="#"  class="button small green --jb-modal xxxxx">

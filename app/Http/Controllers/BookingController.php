@@ -144,12 +144,21 @@ class BookingController extends Controller
         $appointment = Appointment::where('user_id', $doctorId)->where('date', $date)->first();
         $times = Time::where('appointment_id', $appointment->id)->where('status', 0)->get();
         $user = User::with(['department','hospital'])->where('id', $doctorId)->first();
+        $sum_rating_by_doctor = Booking::where('doctor_id',$doctorId)->get(['rate']);
+        $avg_rate = collect($sum_rating_by_doctor)->avg('rate');
         $doctor_id = $doctorId;
-        return view('patient.appointment.appointment-by-doctor', compact('times', 'date', 'user', 'doctor_id'));
+        return view('patient.appointment.appointment-by-doctor', compact('times', 'date', 'user', 'doctor_id','avg_rate'));
 
     }
     public function ShowPrescriptionP(Booking $booking){
         $prescriptions = Prescription::where('book_id',$booking->id)->get();
         return view('patient.booking.show-prescription',compact('prescriptions','booking'));
+    }
+    public function rate_view(Booking $booking){
+        return view('patient.booking.view-rate',compact('booking'));
+    }
+    public function rate(Request $request,Booking $booking){
+    $booking->update(['rate'=>$request->star]);
+    return redirect()->route('mybook');
     }
 }

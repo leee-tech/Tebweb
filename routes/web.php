@@ -3,12 +3,14 @@
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\ClinicController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DiseaseController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\DrugController;
 use App\Http\Controllers\HospitalController;
+use App\Http\Controllers\MedicalRecordController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TypeController;
@@ -64,6 +66,8 @@ Route::group(['middleware' => ['role:admin']], function () {
 
 Route::group(['middleware' => ['role:doctor']], function () {
     Route::resource('/doctor/appointments',AppointmentController::class);
+    Route::resource('/doctor/clinics',ClinicController::class);
+
     Route::get('/doctor/my-profile',[ProfileController::class,'DoctorProfileShow'])->name('doctor.profile.show');
     Route::get('/doctor/doctor-edit',[ProfileController::class,'DoctorProfileEdit'])->name('doctor.profile.edit');
     Route::patch('/doctor/update-doctor',[ProfileController::class,'update'])->name('doctor.profile.update');
@@ -75,6 +79,10 @@ Route::group(['middleware' => ['role:doctor']], function () {
     Route::post('doctor/my-appointments/{booking}/create-prescription',  [BookingController::class, 'PrescriptionStore'])->name('appointments.prescription.store');
     Route::get('doctor/my-appointments/{booking}/show-prescription',  [BookingController::class, 'ShowPrescription'])->name('appointments.prescription.show');
     Route::get('doctor/my-appointments/{booking}/change-status',[BookingController::class, 'UpdateStatusBooking'])->name('appointments.booking.update-status');
+    Route::get('doctor/patient-medical-record',[MedicalRecordController::class, 'getSearchMedicalRecord'])->name('patient.medical.record');
+    Route::get('doctor/patient-medical-record/{user}/appointment',[MedicalRecordController::class, 'getAppointmentByPatient'])->name('patient.medical.appointment');
+    Route::get('doctor/patient-medical-record/{user}/prescription',[MedicalRecordController::class, 'getAppointmentByPrescription'])->name('patient.medical.prescription');
+
 });
 
 
@@ -86,5 +94,7 @@ Route::group(['middleware' => ['role:patient']], function () {
     Route::get('patient/bookings/new-appointment/{doctorId}/{date}', [BookingController::class,'showAppointment'])->name('create.appointment');
     Route::get('patient/my-booking', [BookingController::class,'myBook'])->name('mybook');
     Route::get('patient/my-booking/{booking}/show-prescription', [BookingController::class,'ShowPrescriptionP'])->name('show.prescription');
+    Route::get('patient/my-booking/{booking}/rate', [BookingController::class,'rate_view'])->name('rate.view');
+    Route::post('patient/my-booking/{booking}/rate', [BookingController::class,'rate'])->name('rate.store');
 
 });

@@ -75,6 +75,12 @@
                     <span class="menu-item-label">All Appointment</span>
                 </a>
             </li>
+            <li class="{{request()->is('admin/doctors') || request()->is('admin/doctors/*') ? 'active' : '' }}">
+                <a href="{{route('patient.medical.record')}}">
+                    <span class="icon"><i class="mdi mdi-table"></i></span>
+                    <span class="menu-item-label">Patient Medical Record</span>
+                </a>
+            </li>
 
         </ul>
 
