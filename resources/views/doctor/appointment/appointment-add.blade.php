@@ -42,6 +42,20 @@
                                         <span class="icon left"><i class="mdi mdi-account"></i></span>
                                     </div>
                                 </div>
+                                <div class="field">
+                                    <div class="control icons-left icons-right">
+                                        <div class="select is-fullwidth">
+                                            <select class="form-control" required name="clinic_id">
+                                                @foreach ($clinics as $key)
+                                                    <option value="{{ $key->id }}">
+                                                        {{ $key->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <span class="icon left"><i class="mdi mdi-adjust"></i></span>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>

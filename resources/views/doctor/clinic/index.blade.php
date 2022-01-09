@@ -1,11 +1,11 @@
-@extends('admin.layout.app')
+@extends('doctor.layout.app')
 @section('section')
     @include('flash-message')
     <div id="app">
         <section class="is-title-bar">
             <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
                 <ul>
-                    <li>Admin</li>
+                    <li>Doctor</li>
                     <li>Clinics</li>
                 </ul>
                 <a href="{{route('clinics.create')}}"  class="button blue">

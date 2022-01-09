@@ -81,7 +81,12 @@
                     <span class="menu-item-label">Patient Medical Record</span>
                 </a>
             </li>
-
+            <li class="{{request()->is('admin/clinics') || request()->is('admin/clinics/*') ? 'active' : '' }}">
+                <a href="{{route('clinics.index')}}">
+                    <span class="icon"><i class="mdi mdi-table"></i></span>
+                    <span class="menu-item-label">Clinics</span>
+                </a>
+            </li>
         </ul>
 
     </div>

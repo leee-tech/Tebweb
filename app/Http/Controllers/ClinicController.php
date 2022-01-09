@@ -7,79 +7,60 @@ use Illuminate\Http\Request;
 
 class ClinicController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $clinics = Clinic::where('doctor_id',auth()->id())->paginate(100);
+
+        return view('doctor.clinic.index',compact('clinics'));
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('doctor.clinic.create');
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $data = $request->only('name','location_name');
+        $data['doctor_id'] = auth()->id();
+        Clinic::create($data);
+        return redirect()->route('clinics.index')->with('success','Added clinics successful');
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Clinic  $clinic
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Clinic $clinic)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Clinic  $clinic
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Clinic $clinic)
+
+    public function edit($id)
     {
-        //
+        $clinics = Clinic::find($id);
+        return view('doctor.clinic.edit',compact('clinics'));
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Clinic  $clinic
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Clinic $clinic)
+
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->only('name','location_name');
+        $clinics = Clinic::find($id);
+        $clinics->update($data);
+        return redirect()->route('clinics.index')->with('success','Update clinics successful');
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Clinic  $clinic
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Clinic $clinic)
     {
-        //
+        $clinic->delete();
+        return redirect()->route('clinics.index')->with('success','Delete clinics successful');
+
     }
 }

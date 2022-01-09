@@ -1,4 +1,4 @@
-@extends('admin.layout.app')
+@extends('doctor.layout.app')
 @section('section')
     <div id="app">
         <section class="is-title-bar">
@@ -41,7 +41,12 @@
                                         <span class="icon left"><i class="mdi mdi-account"></i></span>
                                     </div>
                                 </div>
-
+                                <div class="field">
+                                    <div class="control icons-left">
+                                        <textarea class="input" name="location_name" placeholder="Location">{{$clinics->location_name}}</textarea>
+                                        <span class="icon left"><i class="mdi mdi-account"></i></span>
+                                    </div>
+                                </div>
                         <hr>
 
                         <div class="field grouped">

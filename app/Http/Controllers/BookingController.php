@@ -141,13 +141,14 @@ class BookingController extends Controller
 
     }
     public function showAppointment($doctorId, $date){
-        $appointment = Appointment::where('user_id', $doctorId)->where('date', $date)->first();
+        $appointment = Appointment::with('clinic')->where('user_id', $doctorId)->where('date', $date)->first();
         $times = Time::where('appointment_id', $appointment->id)->where('status', 0)->get();
         $user = User::with(['department','hospital'])->where('id', $doctorId)->first();
         $sum_rating_by_doctor = Booking::where('doctor_id',$doctorId)->get(['rate']);
         $avg_rate = collect($sum_rating_by_doctor)->avg('rate');
         $doctor_id = $doctorId;
-        return view('patient.appointment.appointment-by-doctor', compact('times', 'date', 'user', 'doctor_id','avg_rate'));
+
+        return view('patient.appointment.appointment-by-doctor', compact('times', 'date', 'user', 'doctor_id','avg_rate','appointment'));
 
     }
     public function ShowPrescriptionP(Booking $booking){

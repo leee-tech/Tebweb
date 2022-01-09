@@ -9,10 +9,13 @@
                 </p>
             </header>
             <div class="card-content">
-                        <p class="lead"> <b>Name</b>: {{ ucfirst($user->first_name . ' ' .$user->first_name) }}</p>
-                <p class="lead"> <b>Department</b>: {{ ucfirst($user->department->name) }}</p>
-                <p class="lead"> <b>Hospital</b>: {{ ucfirst($user->hospital->name) }}</p>
-                <p class="lead"> <b>Rate Doctor</b>: {{ ucfirst($avg_rate) .' / '. '5' }}</p>
+                        <p class="lead"> <b>Name :</b>: {{ ucfirst($user->first_name . ' ' .$user->first_name) }}</p>
+                <p class="lead"> <b>Department :</b>: {{ ucfirst($user->department->name) }}</p>
+                <p class="lead"> <b>Hospital :</b>: {{ ucfirst($user->hospital->name) }}</p>
+
+                <p class="lead"> <b>Rate Doctor :</b>: {{ ucfirst($avg_rate) .' / '. '5' }}</p>
+                <p class="lead"> <b>Name Clinic :</b>: {{ $appointment->clinic->name }}</p>
+                <p class="lead"> <b>Location :</b>: {{ $appointment->clinic->location_name }}</p>
 
                         {{--                    <p class="lead"> Degree: {{ $user->education }}</p>--}}
                         {{--                    <p class="lead"> Specialist: {{ $user->department }}</p>--}}

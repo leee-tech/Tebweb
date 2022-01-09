@@ -59,10 +59,10 @@
                         <td class="actions-cell">
                             <div class="buttons right nowrap">
                                 <a title="Appointment" href="{{route('patient.medical.appointment',$d->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
-                                    <span class="icon"><i class="mdi mdi-eye"></i></span>
+                                    <span class="icon"><i class="mdi mdi-calendar-clock"></i></span>
                                 </a>
                                 <a title="Prescription" href="{{route('patient.medical.prescription',$d->id)}}" alt class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
-                                    <span class="icon"><i class="mdi mdi-eye"></i></span>
+                                    <span class="icon"><i class="mdi mdi-library-books"></i></span>
                                 </a>
                             </div>
                         </td>

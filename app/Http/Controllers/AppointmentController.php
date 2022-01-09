@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\Clinic;
 use App\Models\Time;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -21,7 +22,8 @@ class AppointmentController extends Controller
 
     public function create()
     {
-        return view('doctor.appointment.appointment-add');
+        $clinics = Clinic::where('doctor_id',\auth()->id())->get();
+        return view('doctor.appointment.appointment-add',compact('clinics'));
     }
 
 
@@ -35,7 +37,8 @@ class AppointmentController extends Controller
 
         $appointment = Appointment::create([
             'user_id' => auth()->user()->id,
-            'date' => $request->date
+            'date' => $request->date,
+            'clinic_id' => $request->clinic_id
         ]);
         foreach ($request->time as $time) {
             Time::create([

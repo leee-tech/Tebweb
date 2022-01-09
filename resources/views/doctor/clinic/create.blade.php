@@ -1,4 +1,4 @@
-@extends('admin.layout.app')
+@extends('doctor.layout.app')
 @section('section')
     <div id="app">
         <section class="is-title-bar">
@@ -38,6 +38,12 @@
                                 <div class="field">
                                     <div class="control icons-left">
                                         <input class="input" type="text" id="name" name="name" placeholder="Name">
+                                        <span class="icon left"><i class="mdi mdi-account"></i></span>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="control icons-left">
+                                        <textarea  name="location_name" placeholder="Location"></textarea>
                                         <span class="icon left"><i class="mdi mdi-account"></i></span>
                                     </div>
                                 </div>

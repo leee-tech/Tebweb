@@ -292,9 +292,12 @@
                                     <a href="{{route('show.prescription',$appointment->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
                                         <span class="icon"><i class="mdi mdi-medical-bag"></i></span>
                                     </a>
+                                    @if ($appointment->status == 1)
+
                                     <a href="{{route('rate.view',$appointment->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
-                                        <span class="icon"><i class="mdi mdi-medical-bag"></i></span>
+                                        <span class="icon"><i class="mdi mdi-account-star"></i></span>
                                     </a>
+                                        @endif
                                 </div>
                             </td>
                         </tr>
