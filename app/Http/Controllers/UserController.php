@@ -17,6 +17,10 @@ class UserController extends Controller
         if($request->active){
             $users = User::role('doctor')->where('active',0)->with(['hospital','department'])->paginate(10);
 
+        }else if($request->admins)
+        {
+            $users = User::role('admin')->where('active',1)->with(['hospital','department'])->paginate(10);
+
         }else{
             $users = User::role('doctor')->where('active',1)->with(['hospital','department'])->paginate(10);
         }
@@ -101,6 +105,17 @@ class UserController extends Controller
     }
     public function UnActiveDoctor(User $user){
         $user->update(['active'=>0]);
+        return redirect()->route('users.index')->with('success','Doctor Un Active successful');
+
+    }
+    public function ChangeAdmin(User $user){
+        $user->removeRole('doctor');
+        $user->assignRole('admin');
+        return redirect()->route('users.index')->with('success','Doctor Un Active successful');
+    }
+    public function UnChangeAdmin(User $user){
+        $user->removeRole('admin');
+        $user->assignRole('doctor');
         return redirect()->route('users.index')->with('success','Doctor Un Active successful');
 
     }

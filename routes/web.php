@@ -16,6 +16,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\UserController;
 use App\Models\Type;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,7 +32,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/',function (){
-   return view('index');
+    $doctors = User::with('department')->role('doctor')->get();
+   return view('index',compact('doctors'));
 });
 //route(get)=> Records or View
 
@@ -58,6 +60,11 @@ Route::group(['middleware' => ['role:admin']], function () {
         Route::resource('diseases',DiseaseController::class);
         Route::get('doctors-active/{user}',[UserController::class,'ActiveDoctor'])->name('doctor.active');
         Route::get('doctors-unactive/{user}',[UserController::class,'UnActiveDoctor'])->name('doctor.unactive');
+        Route::get('doctors-admin/{user}',[UserController::class,'ChangeAdmin'])->name('doctor.admin');
+        Route::get('doctors-unadmin/{user}',[UserController::class,'UnChangeAdmin'])->name('doctor.unadmin');
+
+        Route::get('/my-profile',[ProfileController::class,'AdminEdit'])->name('admin.profile.edit');
+        Route::patch('/my-profile',[ProfileController::class,'updateAdmin'])->name('admin.profile.update');
 
     });
 
@@ -96,5 +103,7 @@ Route::group(['middleware' => ['role:patient']], function () {
     Route::get('patient/my-booking/{booking}/show-prescription', [BookingController::class,'ShowPrescriptionP'])->name('show.prescription');
     Route::get('patient/my-booking/{booking}/rate', [BookingController::class,'rate_view'])->name('rate.view');
     Route::post('patient/my-booking/{booking}/rate', [BookingController::class,'rate'])->name('rate.store');
+    Route::get('patient/my-profile',[ProfileController::class,'PatientEdit'])->name('patient.profile.edit');
+    Route::patch('patient/my-profile',[ProfileController::class,'updatePatient'])->name('patient.profile.update');
 
 });

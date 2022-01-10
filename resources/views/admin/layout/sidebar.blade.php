@@ -19,16 +19,12 @@
                     <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
                 </a>
                 <div class="navbar-dropdown">
-                    <a href="profile.html" class="navbar-item">
+                    <a href="{{route('admin.profile.edit')}}" class="navbar-item">
                         <span class="icon"><i class="mdi mdi-account"></i></span>
                         <span>My Profile</span>
                     </a>
 
                     <hr class="navbar-divider">
-                    <a class="navbar-item" href="href="{{route('logout')}}">
-                        <span class="icon"><i class="mdi mdi-logout"></i></span>
-                        <span>Log Out</span>
-                    </a>
                 </div>
             </div>
 
@@ -83,15 +79,10 @@
                     <span class="menu-item-label">Hospitals Management</span>
                 </a>
             </li>
-            <li class="{{request()->is('admin/types') || request()->is('admin/types/*') ? 'active' : '' }}">
-                <a href="{{route('types.index')}}">
-                    <span class="icon"><i class="mdi mdi-format-list-bulleted-type"></i></span>
-                    <span class="menu-item-label">Types Management</span>
-                </a>
-            </li>
+
             <li class="{{request()->is('admin/drugs') || request()->is('admin/drugs/*') ? 'active' : '' }}">
                 <a href="{{route('drugs.index')}}">
-                    <span class="icon"><i class="mdi mdi-format-list-bulleted-type"></i></span>
+                    <span class="icon"><i class="mdi mdi-invert-colors"></i></span>
                     <span class="menu-item-label">Drugs Management</span>
                 </a>
             </li>

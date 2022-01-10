@@ -17,6 +17,9 @@
             <a href="{{route('users.index',['active'=>1])}}"  class="button blue">
                 <span>Doctors Un Active</span>
             </a>
+            <a href="{{route('users.index',['admins'=>1])}}"  class="button blue">
+                <span>Admins</span>
+            </a>
         </section>
 
         <section class="section main-section">
@@ -51,6 +54,8 @@
 
                     <td class="actions-cell">
                         <div class="buttons right nowrap">
+
+
                             <a href="{{route('users.edit',$d->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
                                 <span class="icon"><i class="mdi mdi-eye"></i></span>
                             </a>
@@ -62,6 +67,16 @@
                             <a href="{{route('doctor.unactive',$d->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
                                 <span class="icon"><i class="mdi mdi-block-helper"></i></span>
                             </a>
+                            @if(auth()->user()->hasRole('doctor'))
+                                <a href="{{route('doctor.admin',$d->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
+                                    <span class="icon"><i class="mdi mdi-account-switch"></i></span>
+                                </a>
+                                @endif
+                                @if(auth()->user()->hasRole('admin'))
+                                    <a href="{{route('doctor.unadmin',$d->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
+                                        <span class="icon"><i class="mdi mdi-account-switch"></i></span>
+                                    </a>
+                                @endif
                             @endif
                             <button class="button small red --jb-modal" data-target="sample-modal" type="button">
                                 <span class="icon"><i class="mdi mdi-trash-can"></i></span>

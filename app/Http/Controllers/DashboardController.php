@@ -16,7 +16,6 @@ class DashboardController extends Controller
         $count_hospital = Hospital::count();
         return view('admin.dashboard',compact('count_p','count_d','count_hospital'));
     }
-//
     function indexDoctor(){
         return view('doctor.dashboard');
     }
