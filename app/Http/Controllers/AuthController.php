@@ -35,6 +35,8 @@ class AuthController extends Controller
             'gender'=>$register_data['gender'],
             'age' => $register_data['age'],
             'phone' => $register_data['phone'],
+            'bdate'=>$register_data['bdate']??null,
+
             'address' => $register_data['address'] ?? null,
             'ssn'=>$register_data['ssn']??null,
             'active'=>1
@@ -42,7 +44,7 @@ class AuthController extends Controller
         //select * from users where id =
         $user = User::find($user->id);
         $user->assignRole('patient');
-        return redirect()->route('login.index')->with('success','Added successful');
+        return redirect()->route('home')->with('success','Added successful');
     }
 
 
@@ -57,6 +59,7 @@ class AuthController extends Controller
             'gender'=>$register_data['gender'],
             'age' => $register_data['age'],
             'phone' => $register_data['phone'],
+            'bdate'=>$register_data['bdate']??null,
             'department_id'=>$register_data['department_id']??null,
             'hospital_id'=>$register_data['hospital_id']??null,
             'address' => $register_data['address'] ?? null,
@@ -64,7 +67,7 @@ class AuthController extends Controller
         //select * from users where id =
         $user = User::find($user->id);
         $user->assignRole('doctor');
-        return redirect()->route('login.index')->with('success','Added successful');
+        return redirect()->route('home')->with('success','Added successful');
     }
 
     //Request $request=>
@@ -84,17 +87,17 @@ class AuthController extends Controller
                 return redirect(route('bookings.index'));
             }else if($user->hasRole('doctor')){
                 if($user->active == 0){
-                    return redirect()->route('login.index')->with('error','Doctor Un Active');
+                    return redirect()->route('home')->with('error','Doctor Un Active');
                 }
                 return redirect(route('doctor.profile.show'));
             }
         }
-        return redirect(route('login.index'))->withErrors('Login details are not valid');
+        return redirect(route('home'))->withErrors('Login details are not valid');
     }
 
     public function logout(){
         Auth::logout();
-        return redirect(route('login.index'));
+        return redirect(route('home'));
     }
 
 }

@@ -55,12 +55,7 @@
                                 <th scope="col">
                                Select Drug
                                 </th>
-                                <th scope="col">
-                                    New Disease
-                                </th>
-                                <th scope="col">
-                                    New Drug
-                                </th>
+
                                 <th scope="col">
                                     Usage Instruction
                                 </th>
@@ -96,12 +91,6 @@
                                     </select>
 
                                     </div>
-                                </th>
-                                <th scope="col">
-                                    <input class="input" type="text"  name="disease[]" required placeholder="New Disease">
-                                </th>
-                                <th scope="col">
-                                    <input class="input" type="text"  name="drug[]" required placeholder="New Drug">
                                 </th>
                                 <th scope="col">
                                     <input class="input" type="text"  name="usage_instruction[]" required placeholder="Usage Instruction">

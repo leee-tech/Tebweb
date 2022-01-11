@@ -54,7 +54,6 @@
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#intro">Home</a></li>
-                    <li><a href="#service">Service</a></li>
                     <li><a href="#doctor">Doctors</a></li>
                 </ul>
             </div>
@@ -104,7 +103,9 @@
                                                     <div class="form-group">
                                                         <label>Email</label>
                                                         <input class="form-control input-md" type="text" name="email" placeholder="user@example.com" autocomplete="username">
-
+                                                        @if ($errors->has('email'))
+                                                            <span class="text-danger">{{ $errors->first('email') }}</span>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -114,14 +115,17 @@
                                                     <div class="form-group">
                                                         <label>Email</label>
                                                         <input class="form-control input-md" type="password" name="password" placeholder="Password" autocomplete="current-password">
-
+                                                        @if ($errors->has('password'))
+                                                            <span class="text-danger">{{ $errors->first('password') }}</span>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
+                                            @include('flash-message')
 
-                                            <input type="submit" value="Submit" class="btn btn-skin btn-block btn-lg">
+                                            <input type="submit" value="Login" class="btn btn-skin btn-block btn-lg">
 
-                                            <p class="lead-footer">* We'll contact you by phone & email later</p>
+                                            <p class="lead-footer"><a href="{{route('auth.login')}}">If you do not have an account, enter here‏</a></p>
 
                                         </form>
                                     </div>
@@ -181,134 +185,7 @@
         </div>
 
     </section>
-    <!-- /Section: boxes -->
 
-
-    <section id="callaction" class="home-section paddingtop-40">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="callaction bg-gray">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="wow fadeInUp" data-wow-delay="0.1s">
-                                    <div class="cta-text">
-                                        <h3>In an emergency? Need help now?</h3>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit uisque interdum ante eget faucibus. </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="wow lightSpeedIn" data-wow-delay="0.1s">
-                                    <div class="cta-btn">
-                                        <a href="#" class="btn btn-skin btn-lg">Book an appoinment</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Section: services -->
-    <section id="service" class="home-section nopadding paddingtop-60">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-sm-6 col-md-6">
-                    <div class="wow fadeInUp" data-wow-delay="0.2s">
-                        <img src="website_home/img/dummy/img-1.jpg" class="img-responsive" alt="" />
-                    </div>
-                </div>
-                <div class="col-sm-3 col-md-3">
-
-                    <div class="wow fadeInRight" data-wow-delay="0.1s">
-                        <div class="service-box">
-                            <div class="service-icon">
-                                <span class="fa fa-stethoscope fa-3x"></span>
-                            </div>
-                            <div class="service-desc">
-                                <h5 class="h-light">Medical checkup</h5>
-                                <p>Vestibulum tincidunt enim in pharetra malesuada.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="wow fadeInRight" data-wow-delay="0.2s">
-                        <div class="service-box">
-                            <div class="service-icon">
-                                <span class="fa fa-wheelchair fa-3x"></span>
-                            </div>
-                            <div class="service-desc">
-                                <h5 class="h-light">Nursing Services</h5>
-                                <p>Vestibulum tincidunt enim in pharetra malesuada.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="wow fadeInRight" data-wow-delay="0.3s">
-                        <div class="service-box">
-                            <div class="service-icon">
-                                <span class="fa fa-plus-square fa-3x"></span>
-                            </div>
-                            <div class="service-desc">
-                                <h5 class="h-light">Pharmacy</h5>
-                                <p>Vestibulum tincidunt enim in pharetra malesuada.</p>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="col-sm-3 col-md-3">
-
-                    <div class="wow fadeInRight" data-wow-delay="0.1s">
-                        <div class="service-box">
-                            <div class="service-icon">
-                                <span class="fa fa-h-square fa-3x"></span>
-                            </div>
-                            <div class="service-desc">
-                                <h5 class="h-light">Gyn Care</h5>
-                                <p>Vestibulum tincidunt enim in pharetra malesuada.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="wow fadeInRight" data-wow-delay="0.2s">
-                        <div class="service-box">
-                            <div class="service-icon">
-                                <span class="fa fa-filter fa-3x"></span>
-                            </div>
-                            <div class="service-desc">
-                                <h5 class="h-light">Neurology</h5>
-                                <p>Vestibulum tincidunt enim in pharetra malesuada.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="wow fadeInRight" data-wow-delay="0.3s">
-                        <div class="service-box">
-                            <div class="service-icon">
-                                <span class="fa fa-user-md fa-3x"></span>
-                            </div>
-                            <div class="service-desc">
-                                <h5 class="h-light">Sleep Center</h5>
-                                <p>Vestibulum tincidunt enim in pharetra malesuada.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!-- /Section: services -->
-
-
-    <!-- Section: team -->
     <section id="doctor" class="home-section bg-gray paddingbot-60">
         <div class="container marginbot-50">
             <div class="row">
@@ -352,7 +229,7 @@
                                 </a>
                                 <a href="#.html" class="cbp-singlePage cbp-l-grid-team-name">{{$doctor->first_name .' ' .$doctor->last_name}}</a>
 
-                                <div class="cbp-l-grid-team-position">{{$doctor->department->name}}</div>
+                                <div class="cbp-l-grid-team-position">{{$doctor->department->name ?? ''}}</div>
                             </li>
                             @endforeach
                         </ul>

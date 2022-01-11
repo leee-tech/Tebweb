@@ -36,6 +36,8 @@ class PatientController extends Controller
             'gender'=>$inputs['gender'],
             'age' => $inputs['age'],
             'phone' => $inputs['phone'],
+            'bdate' => $inputs['bdate'] ?? null,
+
             'address' => $inputs['address'] ?? null
         ]);
         $user = User::find($id);
@@ -68,6 +70,8 @@ class PatientController extends Controller
             'gender'=>$inputs['gender'],
             'age' => $inputs['age'],
             'phone' => $inputs['phone'],
+            'bdate' => $inputs['bdate'] ?? null,
+
             'address' => $inputs['address'] ?? null,
         ]);
         return redirect()->route('patients.index')->with('success','Edit successful');
@@ -77,6 +81,9 @@ class PatientController extends Controller
 
     public function destroy($id)
     {
+        $hospital = Hospital::find($id);
+        $hospital->delete();
+        return redirect()->route('patients.index')->with('success','Delete successful');
 
     }
 }

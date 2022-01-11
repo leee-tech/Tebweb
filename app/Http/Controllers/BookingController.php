@@ -123,10 +123,12 @@ class BookingController extends Controller
                 $prescription->doctor_id = Auth()->user()->id;
                 $prescription->book_id = $booking->id;
                 $prescription->disease_id = $request->disease_id[$i];
+
                 $prescription->drug_id = $request->drug_id[$i];
                 $prescription->usage_instruction = $request->usage_instruction[$i];
                 $prescription->feedback = $request->feedback[$i];
                 $prescription->save();
+
             }
         }
         return redirect()->route('appointments.my-book-doctor')->with('message', 'Your appointment was booked for ');

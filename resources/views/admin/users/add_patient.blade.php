@@ -92,9 +92,19 @@
 
                                     </div>
                                 </div>
+                                <div class="field spaced">
+                                    <p class="control icons-left">
+                                        <input class="input" id="bdate" type="date" name="bdate" placeholder="Date" required>
+                                        <span class="icon is-small left"><i class="mdi mdi-asterisk"></i></span>
+                                        @if ($errors->has('bdate'))
+                                            <span class="text-danger">{{ $errors->first('bdate') }}</span>
+                                        @endif
+                                    </p>
+
+                                </div>
                                 <div class="field">
                                     <div class="control icons-left icons-right">
-                                        <input class="input" type="number" name="age" placeholder="Age" required>
+                                        <input class="input" id="age" type="number" name="age" placeholder="Age" required>
                                         <span class="icon is-small left"><i class="mdi mdi-asterisk"></i></span>
                                         @if ($errors->has('age'))
                                             <span class="text-danger">{{ $errors->first('age') }}</span>

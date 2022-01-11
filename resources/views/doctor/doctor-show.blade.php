@@ -12,9 +12,7 @@
         <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 mb-12">
             <div class="card">
                 <div class="card-content">
-                    <div class="image w-48 h-48 mx-auto">
-                        <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="John Doe" class="rounded-full">
-                    </div>
+
                     <hr>
                     <div class="field">
                         <label class="label">Full Name</label>

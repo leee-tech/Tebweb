@@ -18,8 +18,8 @@ class CreatePrescriptionsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('doctor_id');
             $table->unsignedBigInteger('book_id');
-            $table->unsignedBigInteger('drug_id');
-            $table->unsignedBigInteger('disease_id');
+            $table->unsignedBigInteger('drug_id')->nullable();
+            $table->unsignedBigInteger('disease_id')->nullable();
             $table->text('usage_instruction');
             $table->text('feedback')->nullable();
             $table->string('date')->nullable();

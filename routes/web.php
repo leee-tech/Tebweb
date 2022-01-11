@@ -34,7 +34,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',function (){
     $doctors = User::with('department')->role('doctor')->get();
    return view('index',compact('doctors'));
-});
+})->name('home');
 //route(get)=> Records or View
 
 //login.index => return view (login)=>

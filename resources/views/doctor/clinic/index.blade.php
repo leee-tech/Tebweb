@@ -34,9 +34,16 @@
                             <a href="{{route('clinics.edit',$x->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
                                 <span class="icon"><i class="mdi mdi-eye"></i></span>
                             </a>
-                            <button class="button small red --jb-modal" data-target="sample-modal" type="button">
+                            <a class="button small red --jb-modal" href="{{route('clinics.destroy',$x->id)}}"
+                               onclick="event.preventDefault();
+                                   document.getElementById('delete-form-{{$x->id}}').submit();">
                                 <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                            </button>
+                            </a>
+
+                            <form id="delete-form-{{$x->id}}" action="{{route('clinics.destroy',$x->id)}}" method="POST" style="display: none;">
+                                @method('delete')
+                                @csrf
+                            </form>
                         </div>
                     </td>
                 </tr>

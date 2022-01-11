@@ -54,6 +54,7 @@ class DrugController extends Controller
 
     public function destroy(Drug $drug)
     {
-        //
+        $drug->delete();
+        return redirect()->route('drugs.index')->with('success','Delete Drug successful');
     }
 }

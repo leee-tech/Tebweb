@@ -59,6 +59,8 @@ class HospitalController extends Controller
 
     public function destroy(Hospital $hospital)
     {
-        //
+        $hospital->delete();
+        return redirect()->route('hospitals.index')->with('success','Delete successfully!');
+
     }
 }

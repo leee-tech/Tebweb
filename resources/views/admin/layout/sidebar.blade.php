@@ -56,11 +56,31 @@
         <p class="menu-label">Management</p>
         <ul class="menu-list">
             <li class="{{request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
-                <a href="{{route('users.index')}}">
-                    <span class="icon"><i class="mdi mdi-table"></i></span>
-                    <span class="menu-item-label">Doctor Management</span>
+                <a class="dropdown">
+                    <span class="icon"><i class="mdi mdi-view-list"></i></span>
+                    <span class="menu-item-label">Doctors</span>
+                    <span class="icon"><i class="mdi mdi-minus"></i></span>
                 </a>
+                <ul>
+                    <li>
+                        <a href="{{route('users.index')}}">
+                            <span>Doctors</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('users.index',['active'=>1])}}">
+                            <span>Un Active Doctor</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('users.index',['admins'=>1])}}">
+                            <span>Admins</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
+
+
             <li class="{{request()->is('admin/patients') || request()->is('admin/patients/*') ? 'active' : '' }}">
                 <a href="{{route('patients.index')}}">
                     <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>

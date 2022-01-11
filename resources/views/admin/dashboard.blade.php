@@ -35,7 +35,7 @@
                                 {{$count_p}}
                             </h1>
                         </div>
-                        <span class="icon widget-icon text-green-500"><i class="mdi mdi-account-multiple mdi-48px"></i></span>
+                        <span class="icon widget-icon text-blue-500"><i class="mdi mdi-account-multiple mdi-48px"></i></span>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                                 {{$count_d}}
                             </h1>
                         </div>
-                        <span class="icon widget-icon text-blue-500"><i class="mdi mdi-account-card-details mdi-48px"></i></span>
+                        <span class="icon widget-icon text-blue-500"><i class="mdi mdi-needle mdi-48px"></i></span>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                                 {{$count_hospital}}
                             </h1>
                         </div>
-                        <span class="icon widget-icon text-red-500"><i class="mdi mdi-hospital-building mdi-48px"></i></span>
+                        <span class="icon widget-icon text-blue-500"><i class="mdi mdi-hospital-building mdi-48px"></i></span>
                     </div>
                 </div>
             </div>

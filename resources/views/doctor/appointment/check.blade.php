@@ -23,7 +23,7 @@
                 <br>
                 @if (isset($date))
                     Your timetable for:
-                    {{ $date }}
+                        {{ $date }}
                 @endif
 
             </div>

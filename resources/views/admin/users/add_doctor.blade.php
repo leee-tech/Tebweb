@@ -110,9 +110,19 @@
 
                                     </div>
                                 </div>
-                                <div class="field">
+                                <div class="field spaced">
+                                    <p class="control icons-left">
+                                        <input class="input" id="bdate" type="date" name="bdate" placeholder="Date" required>
+                                        <span class="icon is-small left"><i class="mdi mdi-asterisk"></i></span>
+                                        @if ($errors->has('bdate'))
+                                            <span class="text-danger">{{ $errors->first('bdate') }}</span>
+                                        @endif
+                                    </p>
+
+                                </div>
+                                <div class="field spaced">
                                     <div class="control icons-left icons-right">
-                                        <input class="input" type="number" name="age" placeholder="Age" required>
+                                        <input class="input" id="age" type="number" name="age" placeholder="Age" required>
                                         <span class="icon is-small left"><i class="mdi mdi-asterisk"></i></span>
                                         @if ($errors->has('age'))
                                             <span class="text-danger">{{ $errors->first('age') }}</span>
@@ -141,11 +151,6 @@
                                     Submit
                                 </button>
                             </div>
-                            <div class="control">
-                                <button type="reset" class="button red">
-                                    Reset
-                                </button>
-                            </div>
                         </div>
                     </form>
                 </div>
@@ -153,4 +158,18 @@
         </section>
 
     </div>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $('#bdate').on('change', function() {
+            var today = new Date();
+            var birthDate = new Date(this.value);
+            var age = today.getFullYear() - birthDate.getFullYear();
+            var m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            $('#age').val(age);
+        });
+
+    </script>
 @endsection

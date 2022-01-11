@@ -51,6 +51,7 @@ class UserController extends Controller
             'department_id'=>$inputs['department_id'],
             'address' => $inputs['address'] ?? null,
             'hospital_id' => $inputs['hospital_id'],
+            'bdate' => $inputs['bdate'] ?? null,
 
         ]);
         $user = User::find($id);
@@ -91,6 +92,7 @@ class UserController extends Controller
             'phone' => $inputs['phone'],
             'department_id'=>$inputs['department_id'],
             'hospital_id' => $inputs['hospital_id'],
+            'bdate' => $inputs['bdate'] ?? null,
 
             'address' => $inputs['address'] ?? null
         ]);

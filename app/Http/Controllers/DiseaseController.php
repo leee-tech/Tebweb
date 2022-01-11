@@ -52,14 +52,11 @@ class DiseaseController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Disease  $disease
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Disease $disease)
     {
-        //
+        $disease->delete();
+        return redirect()->route('diseases.index')->with('success','Update diseases successful');
+
     }
 }
