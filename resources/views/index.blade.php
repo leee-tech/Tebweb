@@ -46,9 +46,9 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">
-                    <img src="website_home/img/323.png" alt="" width="150" height="40" />
-                </a>
+                <img src="202.jpg" alt="" width="200" height="70" />
+
+
             </div>
 
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
@@ -68,7 +68,7 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="wow fadeInDown" data-wow-offset="0" data-wow-delay="0.1s">
-                            <h2 class="h-ultra">Tebweb</h2>
+                            <h2 class="h-ultra">Medical Rec.</h2>
                         </div>
                         <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.1s">
                             <h4 class="h-light">Provide <span class="color">best quality healthcare</span> for you</h4>
@@ -93,7 +93,7 @@
 
                                 <div class="panel panel-skin">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title"><span class="fa fa-pencil-square-o"></span> Make an appoinment <small>(Login Please)</small></h3>
+                                        <h3 class="panel-title"><span class="fa fa-pencil-square-o"></span> Make an appoinment <br><br><small><b>login</b></small></h3>
                                     </div>
                                     <div class="panel-body">
                                         <form role="form" method="POST" action="{{route('auth.login')}}" class="lead">

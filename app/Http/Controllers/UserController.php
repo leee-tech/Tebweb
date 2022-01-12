@@ -38,6 +38,9 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'email' => 'required|email|unique:users,email',
+        ]);
         $inputs = $request->all();
         $register_data = $request->all();
         $id = DB::table('users')->insertGetId([
@@ -82,7 +85,12 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $inputs = $request->all();
+
         $user = User::find($id);
+        $request->validate([
+            'email' => 'required|email|unique:users,email,'.$user->id,
+        ]);
+
         $user->update([
             "email" => $inputs["email"],
             'first_name' => $inputs['first_name'],

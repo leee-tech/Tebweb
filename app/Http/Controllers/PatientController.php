@@ -21,13 +21,16 @@ class PatientController extends Controller
     public function create()
     {
         $departments = Department::all();
-        return view('admin.users.edit_patient',compact('departments'));
+        return view('admin.users.add_patient',compact('departments'));
     }
 
     public function store(Request $request)
     {
         $inputs = $request->all();
         $register_data = $request->all();
+        $request->validate([
+            'email' => 'required|email|unique:users,email',
+        ]);
         $id = DB::table('users')->insertGetId([
             "email" => $inputs["email"],
             'first_name' => $inputs['first_name'],
@@ -63,6 +66,10 @@ class PatientController extends Controller
     {
         $inputs = $request->all();
         $user = User::find($id);
+        $request->validate([
+            'email' => 'required|email|unique:users,email,'.$user->id,
+        ]);
+
         $user->update([
             "email" => $inputs["email"],
             'first_name' => $inputs['first_name'],

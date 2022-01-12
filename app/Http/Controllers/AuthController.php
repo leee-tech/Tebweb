@@ -25,6 +25,10 @@ class AuthController extends Controller
         return view('auth.signup-doctor',compact('departments','hospitals'));
     }
     public function signupStore(Request $request){
+        $request->validate([
+            'email' => 'required|email|unique:users,email',
+        ]);
+
         $register_data = $request->all();
         //insert into users
         $user = User::create([
@@ -50,7 +54,9 @@ class AuthController extends Controller
 
     public function signupStoreDoctor(Request $request){
         $register_data = $request->all();
-        //insert into users
+        $request->validate([
+            'email' => 'required|email|unique:users,email',
+        ]);
         $user = User::create([
             "email" => $register_data["email"],
             'first_name' => $register_data['first_name'],

@@ -34,6 +34,12 @@
                                 <input type="text" name="last_name" value="{{auth()->user()->last_name}}" class="input is-static">
                             </div>
                         </div>
+                        <div class="field">
+                            <label class="label">Last Name</label>
+                            <div class="control">
+                                <input type="text" name="last_name" value="{{auth()->user()->ssn}}" class="input is-static">
+                            </div>
+                        </div>
                         <hr>
                         <div class="field">
                             <label class="label">E-mail</label>

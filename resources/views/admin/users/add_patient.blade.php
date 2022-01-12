@@ -70,7 +70,6 @@
                                     <div class="control icons-left icons-right">
                                         <div class="select is-fullwidth">
                                             <select class="form-control" name="department_id">
-                                                <option>Select Department</option>
                                                 @foreach ($departments as $key)
                                                     <option value="{{ $key->id }}">
                                                         {{ $key->name }}

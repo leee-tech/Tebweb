@@ -61,10 +61,11 @@
                                     </div>
                                 </div>
                                 <div class="field">
+                                    <label class="label">Hospitals</label>
+
                                     <div class="control icons-left icons-right">
                                         <div class="select is-fullwidth">
                                             <select class="form-control" name="hospital_id">
-                                                <option>Select Hospital</option>
                                                 @foreach ($hospitals as $key)
                                                     <option value="{{ $key->id }}">
                                                         {{ $key->name }}
@@ -77,10 +78,11 @@
                                 </div>
 
                                 <div class="field">
+                                    <label class="label">Departments</label>
+
                                     <div class="control icons-left icons-right">
                                         <div class="select is-fullwidth">
                                             <select class="form-control" name="department_id">
-                                                <option>Select Department</option>
                                                 @foreach ($departments as $key)
                                                     <option value="{{ $key->id }}" {{$get_department_id == $key->id ?'selected': ''}}>
                                                         {{ $key->name }}
