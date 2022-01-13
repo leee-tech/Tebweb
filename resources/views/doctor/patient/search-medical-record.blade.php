@@ -4,9 +4,10 @@
     <section class="is-title-bar">
         <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
             <ul>
-                <li>Doctor</li>
-                <li>Patient </li>
-                <li>Medical Record</li>
+
+
+                <li>Patient's Medical Record</li>
+
             </ul>
 
 
@@ -15,11 +16,13 @@
     <section class="section main-section">
         <div class="card mb-6">
             <form action="{{ route('patient.medical.record') }}" method="get">
-
+                <p><h1>Inter the SSN_Patient to show the Medical Record:</h1></p>
+                <br>
                 <div class="field">
                     <div class="field-body">
                         <div class="field">
                             <div class="control icons-left">
+
                                 <input class="input" type="text" id="name" name="ssn" placeholder="Search SSN">
                                 <span class="icon left"><i class="mdi mdi-account"></i></span>
                             </div>

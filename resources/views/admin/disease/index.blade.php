@@ -5,9 +5,10 @@
         <section class="is-title-bar">
             <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
                 <ul>
-                    <li>Admin</li>
-                    <li>Diseases</li>
+
+                    <li>All Diseases</li>
                 </ul>
+
                 <a href="{{route('diseases.create')}}"  class="button blue">
                     <span>Create</span>
                 </a>
@@ -21,7 +22,7 @@
                 <tr>
                     <th>Name</th>
 
-                    <th></th>
+
                 </tr>
                 </thead>
                 <tbody>

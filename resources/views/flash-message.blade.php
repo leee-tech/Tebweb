@@ -10,7 +10,12 @@
     </div>
 
 @endif
-
+@if ($message = Session::get('register'))
+    <div class="button red">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>{{ $message }}</strong>
+    </div>
+@endif
 
 @if ($message = Session::get('error'))
     <div class="button red">

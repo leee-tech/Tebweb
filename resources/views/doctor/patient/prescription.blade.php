@@ -6,8 +6,8 @@
         <section class="is-title-bar">
             <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
                 <ul>
-                    <li>Doctor</li>
-                    <li>Prescriptions</li>
+
+                    <li>diagnosis</li>
                 </ul>
             </div>
         </section>
@@ -17,11 +17,11 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Patient</th>
+                    <th scope="col">Patient name</th>
                     <th scope="col">Doctor</th>
                     <th scope="col">Drug</th>
                     <th scope="col">Disease</th>
-                    <th scope="col">Usage Instruction</th>
+                    <th scope="col">Times of take Medicine</th>
                 </tr>
                 </thead>
                 <tbody>

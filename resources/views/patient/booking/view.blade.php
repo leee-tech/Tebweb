@@ -4,8 +4,8 @@
         <section class="is-title-bar">
             <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
                 <ul>
-                    <li>Appointment</li>
-                    <li>New Appointment</li>
+
+                    <li> Take New Appointment</li>
 
                 </ul>
 
@@ -16,14 +16,26 @@
                 <header class="card-header">
                     <p class="card-header-title">
                         <span class="icon"><i class="mdi mdi-ballot"></i></span>
-                        Search
-                    </p>
+                        Search a department you want to visit                    </p>
                 </header>
                 <div class="card-content">
                     <form method="GET" action="{{route('bookings.index')}}">
 
                         <div class="field">
-                            <label class="label">Date</label>
+                            <label class="label">Department</label>
+                            <div class="select is-fullwidth">
+
+                                <select class="form-control" name="department_id">
+                                    <option value="0">Select Department</option>
+                                    @foreach ($departments as $key)
+                                        <option value="{{ $key->id }}">
+                                            {{ $key->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        <div class="field"> <br><br>
+                            <label class="label">Date</label><SMALL></SMALL>
                             <div class="field-body">
                                 <div class="field">
                                     <div class="control icons-left">
@@ -34,22 +46,9 @@
 
                             </div>
                         </div>
-                        <div class="field">
-                            <label class="label">Department</label>
-                            <div class="select is-fullwidth">
-
-                            <select class="form-control" name="department_id">
-                                <option value="0">Select Department</option>
-                                @foreach ($departments as $key)
-                                    <option value="{{ $key->id }}">
-                                        {{ $key->name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            </div>
                         </div>
-
-                        <button type="submit" class="button blue">Check</button>
+<br>
+                        <button type="submit" class="button blue">Search</button>
 
                     </form>
 
@@ -57,7 +56,7 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <div class="card-header">List of Doctors Available: @isset($formatDate) {{ $formatDate }}
+                    <div style="color: #3ebe1e">Appointments available for today @isset($formatDate) {{ $formatDate }}
                         @endisset
                     </div>
                     <div class="card-body table-responsive-sm">
@@ -69,7 +68,7 @@
                                 <th>Department</th>
                                 <th>Hospital</th>
                                 <th>Date</th>
-                                <th>Book</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -84,12 +83,12 @@
 
                                     <td>
                                             <a href="{{ route('create.appointment', [$doctor->user_id, $doctor->date]) }}"><button
-                                                    class="button green">Appointment</button></a>
+                                                    class="button green">BOOK NOW</button></a>
                                         </td>
 
                                 </tr>
                             @empty
-                                <td>No doctors available</td>
+                                <td style="color: #d32020">No doctors available</td>
                             @endforelse
                             </tbody>
                         </table>

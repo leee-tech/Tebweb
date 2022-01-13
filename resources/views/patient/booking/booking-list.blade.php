@@ -277,14 +277,14 @@
                             <td>{{ $appointment->created_at->format('Y-m-d') }}</td>
                             <td>
 
-                                <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="{{ $appointment->rate }}" data-size="xs" disabled="">
+                                <input   id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="{{ $appointment->rate }}" data-size="xs" disabled="">
 
                             </td>
                             <td>
                                 @if ($appointment->status == 0)
-                                    <p>Not Visited</p>
+                                    <p style="color: red">Not Visited</p>
                                 @else
-                                    <p>Checked-In</p>
+                                    <p style="color: #0d8ebd">Visited</p>
                                 @endif
                             </td>
                             <td class="actions-cell">
@@ -303,7 +303,7 @@
                         </tr>
 
                     @empty
-                        <td>You have no any appointments</td>
+                        <td style="color: #d32020">You have no any appointments</td>
                     @endforelse
 
                 </tbody>

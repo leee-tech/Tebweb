@@ -21,7 +21,7 @@
                 <p class="card-header-title">
                     <span class="icon"><i class="mdi mdi-lock"></i></span>
                     Register
-                </p>
+
             </header>
             <div class="card-content">
                 <form method="POST" action="{{route('signup.store')}}">

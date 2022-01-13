@@ -14,6 +14,7 @@
 <br/>
 <br/>
 @section('section')
+
     <title>Register Doctor</title>
 
     <body>
@@ -172,6 +173,7 @@
                             <button type="submit" class="button blue">
                                 Register
                             </button>
+                            @include('flash-message')
                         </div>
 
                     </div>

@@ -38,7 +38,7 @@
 <aside class="aside is-placed-left is-expanded">
     <div class="aside-tools">
         <div>
-            Doctor <b class="font-black">TebWeb</b>
+            Doctor <b class="font-black">Medical Rec.</b>
         </div>
     </div>
     <div class="menu is-menu-main">
@@ -53,12 +53,12 @@
                 <ul>
                     <li>
                         <a href="{{route('appointments.create')}}">
-                            <span>Appointment Time</span>
+                            <span>Make New Appointments</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{route('appointments.index')}}">
-                            <span>Check Appointments</span>
+                            <span>Show all Appointments</span>
                         </a>
                     </li>
                 </ul>
@@ -72,7 +72,7 @@
             <li class="{{request()->is('admin/doctors') || request()->is('admin/doctors/*') ? 'active' : '' }}">
                 <a href="{{route('appointments.my-book-doctor')}}">
                     <span class="icon"><i class="mdi mdi-table"></i></span>
-                    <span class="menu-item-label">All Appointment</span>
+                    <span class="menu-item-label">patient's Appointment</span>
                 </a>
             </li>
             <li class="{{request()->is('admin/doctors') || request()->is('admin/doctors/*') ? 'active' : '' }}">

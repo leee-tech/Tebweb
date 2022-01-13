@@ -4,8 +4,8 @@
         <section class="is-title-bar">
             <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
                 <ul>
-                    <li>Department</li>
-                    <li>Update</li>
+                    <li>Edit Department</li>
+
                     <li> {{$department->name}}</li>
                 </ul>
 
@@ -14,26 +14,19 @@
 
         <section class="is-hero-bar">
             <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-                <h1 class="title">
-                    Forms
-                </h1>
+
             </div>
         </section>
 
         <section class="section main-section">
             <div class="card mb-6">
-                <header class="card-header">
-                    <p class="card-header-title">
-                        <span class="icon"><i class="mdi mdi-ballot"></i></span>
-                        Forms
-                    </p>
-                </header>
+
                 <div class="card-content">
                     <form method="post" action="{{route('departments.update',$department->id)}}">
                         @csrf
                         @method('patch')
                         <div class="field">
-                            <label class="label">From</label>
+                            <label class="label">Name of department</label>
                             <div class="field-body">
                                 <div class="field">
                                     <div class="control icons-left">
@@ -43,11 +36,11 @@
                                 </div>
 
                         <hr>
-
+<br>
                         <div class="field grouped">
                             <div class="control">
                                 <button type="submit" class="button green">
-                                    Submit
+                                    Edit
                                 </button>
                             </div>
 

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Tebweb</title>
+    <title>Medical Rec.</title>
 
     <!-- css -->
     <link href="website_home/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -68,18 +68,18 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="wow fadeInDown" data-wow-offset="0" data-wow-delay="0.1s">
-                            <h2 class="h-ultra">Medical Rec.</h2>
-                        </div>
+                            <h1 class="h-ultra">Medical Rec.</h1 >
+                        </div> <br>
                         <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.1s">
-                            <h4 class="h-light">Provide <span class="color">best quality healthcare</span> for you</h4>
+                            <h3 class="h-light">SAVE <span class="color">YOURSELFE </span> FROM <span style="color:RED;">COVID-19</span> </h3>
                         </div>
                         <div class="well well-trans">
                             <div class="wow fadeInRight" data-wow-delay="0.1s">
 
                                 <ul class="lead-list">
-                                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Affordable monthly premium packages</strong><br />Lorem ipsum dolor sit amet, in verterem persecuti vix, sit te meis</span></li>
-                                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Choose your favourite doctor</strong><br />Sit zril sanctus scaevola ei, ea usu movet graeco</span></li>
-                                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Only use friendly environment</strong><br />Wisi lobortis eos ex, per at movet delectus, qui no vocent deleniti</span></li>
+                                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Avoid not crowding</strong><br /></span></li>
+                                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Wear a mask</strong><br /></span></li>
+                                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Take the vaccine doses</strong><br /></span></li>
                                 </ul>
 
                             </div>
@@ -125,7 +125,7 @@
 
                                             <input type="submit" value="Login" class="btn btn-skin btn-block btn-lg">
 
-                                            <p class="lead-footer"><a href="{{route('auth.login')}}">If you do not have an account, enter here‏</a></p>
+                                            <p class="lead-footer" ><a  href="{{route('auth.login')}}"> <lable style="color:RED;"> Create an account ‏</lable></a></p>
 
                                         </form>
                                     </div>
@@ -160,7 +160,7 @@
                         <div class="box text-center">
 
                             <i class="fa fa-list-alt fa-3x circled bg-skin"></i>
-                            <h4 class="h-bold">Choose your Doctor</h4>
+                            <h4 class="h-bold">Git diagnosis online</h4>
                         </div>
                     </div>
                 </div>
@@ -168,7 +168,7 @@
                     <div class="wow fadeInUp" data-wow-delay="0.2s">
                         <div class="box text-center">
                             <i class="fa fa-user-md fa-3x circled bg-skin"></i>
-                            <h4 class="h-bold">Help by specialist</h4>
+                            <h4 class="h-bold">Choose your Doctor</h4>
                         </div>
                     </div>
                 </div>
@@ -177,7 +177,7 @@
                         <div class="box text-center">
 
                             <i class="fa fa-hospital-o fa-3x circled bg-skin"></i>
-                            <h4 class="h-bold">Get diagnostic report</h4>
+                            <h4 class="h-bold">several clinics</h4>
                         </div>
                     </div>
                 </div>
@@ -193,7 +193,7 @@
                     <div class="wow fadeInDown" data-wow-delay="0.1s">
                         <div class="section-heading text-center">
                             <h2 class="h-bold">Doctors</h2>
-                            Best Doctors</p>
+                            </p>
                         </div>
                     </div>
                     <div class="divider-short"></div>
@@ -250,7 +250,7 @@
                     <div class="col-sm-6 col-md-6 col-lg-6">
                         <div class="wow fadeInLeft" data-wow-delay="0.1s">
                             <div class="text-left">
-                                <p>&copy;Copyright 2022 - Tebweb. All rights reserved.</p>
+                                <p>&copy;Copyright 2022 - Medicla Rec. All rights reserved.</p>
                             </div>
                         </div>
                     </div>

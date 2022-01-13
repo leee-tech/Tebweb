@@ -38,7 +38,7 @@
 <aside class="aside is-placed-left is-expanded">
     <div class="aside-tools">
         <div>
-            Patient <b class="font-black">TebWeb</b>
+            Patient <b class="font-black">Medical Rec.</b>
         </div>
     </div>
     <div class="menu is-menu-main">
@@ -47,7 +47,7 @@
             <li class="{{request()->is('patient/bookings') || request()->is('patient/bookings/*') ? 'active' : '' }}">
                 <a href="{{route('bookings.index')}}">
                     <span class="icon"><i class="mdi mdi-table"></i></span>
-                    <span class="menu-item-label">New Appointment</span>
+                    <span class="menu-item-label">Take Anew Appointment</span>
                 </a>
             </li>
             <li class="{{request()->is('patient/my-booking') || request()->is('patient/my-booking/*') ? 'active' : '' }}">

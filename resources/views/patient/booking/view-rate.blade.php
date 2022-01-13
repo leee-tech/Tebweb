@@ -1,4 +1,4 @@
-@extends('doctor.layout.app')
+@extends('patient.layout.app')
 @section('section')
 
 {{--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--}}
@@ -55,8 +55,7 @@
     }
     .horline > li {
         font-weight: bold;
-        color:
-            #ff7e1a;
+        color: #ea0505;
 
     }
     /** end rating **/
@@ -67,31 +66,19 @@
         <section class="is-title-bar">
             <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
                 <ul>
-                    <li>Rate</li>
-                    <li>create</li>
-                    <li>New</li>
+
+                    <li>Rating</li>
 
                 </ul>
 
             </div>
         </section>
 
-        <section class="is-hero-bar">
-            <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-                <h1 class="title">
-                    Forms
-                </h1>
-            </div>
-        </section>
+
 
         <section class="section main-section">
             <div class="card mb-6">
-                <header class="card-header">
-                    <p class="card-header-title">
-                        <span class="icon"><i class="mdi mdi-ballot"></i></span>
-                        Forms
-                    </p>
-                </header>
+
                 <div class="card-content">
                     <form method="post" action="{{route('rate.store',$booking->id)}}">
                         @csrf
@@ -115,7 +102,7 @@
                         <div class="field grouped">
                             <div class="control">
                                 <button type="submit" class="button green">
-                                    Submit
+                                    Rate
                                 </button>
                             </div>
                         </div>
