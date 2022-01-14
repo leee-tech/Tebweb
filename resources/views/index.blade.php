@@ -46,7 +46,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <img src="202.jpg" alt="" width="200" height="70" />
+                <img src="new.jpg" alt="" width="100" height="100" />
 
 
             </div>
@@ -77,7 +77,7 @@
                             <div class="wow fadeInRight" data-wow-delay="0.1s">
 
                                 <ul class="lead-list">
-                                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Avoid not crowding</strong><br /></span></li>
+                                    <li><span >    <img src="new.jpg" alt="" width="100" height="100" /></span> <span class="list"><strong>Avoid not crowding</strong><br /></span></li>
                                     <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Wear a mask</strong><br /></span></li>
                                     <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Take the vaccine doses</strong><br /></span></li>
                                 </ul>
