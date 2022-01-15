@@ -113,7 +113,18 @@
                 </a>
             </li>
 
-
+            <li>
+                <a href="{{route('admin.pdf.generate',['status'=>'today'])}}">
+                    <span class="icon"><i class="mdi mdi-format-list-bulleted-type"></i></span>
+                    <span class="menu-item-label">Appointment Today</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{route('admin.pdf.generate',['status'=>'month'])}}">
+                    <span class="icon"><i class="mdi mdi-format-list-bulleted-type"></i></span>
+                    <span class="menu-item-label">Appointment Month</span>
+                </a>
+            </li>
         </ul>
 
     </div>

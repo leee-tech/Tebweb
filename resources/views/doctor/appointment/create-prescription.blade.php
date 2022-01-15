@@ -18,7 +18,7 @@
         <section class="is-title-bar">
             <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
                 <ul>
-                    <li>Department</li>
+                    <li>Appointment</li>
                     <li>create</li>
                     <li>New</li>
 
@@ -67,41 +67,16 @@
 
                             <tr id="trxxx">
                                 <th scope="col">
-                                    <div class="select is-fullwidth">
-
-                                        <select class="select-x form-control"  name="disease_id[]" required>
-                                            @foreach ($diseases as $key)
-                                                <option value="{{ $key->id }}">
-                                                    {{ $key->name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
+                                        <input class="input" type="text"  name="disease_id[]" required placeholder="Disease">
                                 </th>
                                 <th scope="col">
-                                    <div class="select is-fullwidth">
-
-                                    <select class="select-x js-states form-control"  name="drug_id[]" required>
-                                        @foreach ($drugs as $key)
-                                            <option value="{{ $key->id }}">
-                                                {{ $key->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-
-                                    </div>
+                                        <input class="input" type="text"  name="drug_id[]" required placeholder="Drug">
                                 </th>
                                 <th scope="col">
                                     <input class="input" type="text"  name="usage_instruction[]" required placeholder="Usage Instruction">
                                 </th>
                                 <th scope="col">
                                     <input class="input" type="text"  name="feedback[]" required placeholder="Feedback">
-                                </th>
-                                <th scope="col">
-                                    <a href="#"  class="button small green --jb-modal xxxxx">
-                                        <span class="icon"><i class="mdi mdi-clipboard-plus"></i></span>
-                                    </a>
                                 </th>
                                 <th scope="col">
                                     <a href="#"  class="button small green --jb-modal xxxxx">
@@ -118,7 +93,13 @@
                             <button id="clear" class="btn btn-danger btn-sm">Clear Signature</button>
                             <textarea id="signature64" name="signed" style="display: none"></textarea>
                         </div>
-
+                        <p class="card-header-title">
+                            <span class="icon"><i class="mdi mdi-ballot"></i></span>
+                            Feed Back
+                        </p>
+                        <div class="col-md-12">
+                            <textarea name="feedback_appointment" style=" width: 1400px;height: 150px;">{{$booking->feedback}}</textarea>
+                        </div>
 
                         <div class="field grouped">
                             <div class="control">

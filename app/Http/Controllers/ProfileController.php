@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Department;
 use App\Models\Hospital;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -74,4 +76,16 @@ class ProfileController extends Controller
         ]);
         return redirect()->route('doctor.profile.show')->with('success','Edit successful');
     }
+    public function generateReport(Request $request){
+        if($request->status == 'today'){
+            $data = Booking::with(['doctor','user'])->whereDay('created_at', date('d'))->get();
+
+        }else if($request->status=='month'){
+            $data = Booking::with(['doctor','user'])->whereMonth('created_at', date('m'))->get();
+        }
+        view()->share('booking',$data);
+        $pdf = PDF::loadView('pdf_view', $data);
+        return $pdf->download('pdf-view.pdf');
+    }
+
 }

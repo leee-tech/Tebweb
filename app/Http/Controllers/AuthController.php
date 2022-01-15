@@ -27,6 +27,7 @@ class AuthController extends Controller
     public function signupStore(Request $request){
         $request->validate([
             'email' => 'required|email|unique:users,email',
+            'ssn' => 'required|unique:users,ssn',
         ]);
 
         $register_data = $request->all();

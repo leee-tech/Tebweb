@@ -45,7 +45,8 @@
                     <th>Phone</th>
                     <th>Age</th>
                     <th>Gender</th>
-                    <th></th>
+                    <th>By ALL</th>
+                    <th>By Doctor</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -58,16 +59,23 @@
                         <td data-label="City">{{$d->age}}</td>
                         <td data-label="City">{{$d->gender}}</td>
                         {{--                    <td data-label="City">{{$d->position}}</td>--}}
-
                         <td class="actions-cell">
-                            <div class="buttons right nowrap">
+                            <div >
                                 <a title="Appointment" href="{{route('patient.medical.appointment',$d->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
                                     <span class="icon"><i class="mdi mdi-calendar-clock"></i></span>
                                 </a>
-                                <a title="Appointment" href="{{route('patient.medical.appointment',[$d->id,'own'=>11])}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
+                                <a title="Prescription" href="{{route('patient.medical.prescription',$d->id)}}" alt class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
+                                    <span class="icon"><i class="mdi mdi-library-books"></i></span>
+                                </a>
+                            </div>
+                        </td>
+                        <td class="actions-cell">
+                            <div >
+
+                                <a title="Appointment" href="{{route('patient.medical.appointment',[$d->id,'own'=>true])}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
                                     <span class="icon"><i class="mdi mdi-calendar-clock"></i></span>
                                 </a>
-                                <a title="Prescription" href="{{route('patient.medical.prescription',$d->id)}}" alt class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
+                                <a title="Prescription" href="{{route('patient.medical.prescription',[$d->id,'own'=>true])}}" alt class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
                                     <span class="icon"><i class="mdi mdi-library-books"></i></span>
                                 </a>
                             </div>

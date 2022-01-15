@@ -58,6 +58,7 @@ Route::group(['middleware' => ['role:admin']], function () {
         Route::resource('types',TypeController::class);
         Route::resource('drugs',DrugController::class);
         Route::resource('diseases',DiseaseController::class);
+
         Route::get('doctors-active/{user}',[UserController::class,'ActiveDoctor'])->name('doctor.active');
         Route::get('doctors-unactive/{user}',[UserController::class,'UnActiveDoctor'])->name('doctor.unactive');
         Route::get('doctors-admin/{user}',[UserController::class,'ChangeAdmin'])->name('doctor.admin');
@@ -66,6 +67,7 @@ Route::group(['middleware' => ['role:admin']], function () {
         Route::get('/my-profile',[ProfileController::class,'AdminEdit'])->name('admin.profile.edit');
         Route::patch('/my-profile',[ProfileController::class,'updateAdmin'])->name('admin.profile.update');
 
+        Route::get('generate-report',[ProfileController::class,'generateReport'])->name('admin.pdf.generate');
     });
 
     });

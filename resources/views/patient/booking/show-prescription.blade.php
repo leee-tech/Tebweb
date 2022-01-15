@@ -29,8 +29,8 @@
                         <td>{{ $key + 1 }}</td>
                         <td>{{ $prescription->user->first_name . ' ' . $prescription->user->last_name }}</td>
                         <td>{{ $prescription->doctor->first_name . ' ' . $prescription->doctor->last_name }}</td>
-                        <td>{{ $prescription->drug->name}}</td>
-                        <td>{{ $prescription->disease->name }}</td>
+                        <td>{{ $prescription->drug_id}}</td>
+                        <td>{{ $prescription->disease_id }}</td>
                         <td>{{ $prescription->usage_instruction }}</td>
                     </tr>
                 @empty

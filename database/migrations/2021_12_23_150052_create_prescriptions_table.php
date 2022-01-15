@@ -18,16 +18,13 @@ class CreatePrescriptionsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('doctor_id');
             $table->unsignedBigInteger('book_id');
-            $table->unsignedBigInteger('drug_id')->nullable();
-            $table->unsignedBigInteger('disease_id')->nullable();
+            $table->string('drug_id')->nullable();
+            $table->string('disease_id')->nullable();
             $table->text('usage_instruction');
             $table->text('feedback')->nullable();
             $table->string('date')->nullable();
 
             $table->foreign('book_id')->references('id')->on('bookings')->onDelete('cascade');
-            $table->foreign('drug_id')->references('id')->on('diseases')->onDelete('cascade');
-            $table->foreign('disease_id')->references('id')->on('drugs')->onDelete('cascade');
-
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('doctor_id')->references('id')->on('users')->onDelete('cascade');
 

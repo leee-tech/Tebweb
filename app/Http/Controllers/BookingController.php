@@ -116,6 +116,8 @@ class BookingController extends Controller
     public function PrescriptionStore(Request $request,Booking $booking){
         $prescriptions = $request->all();
         $count = count($request->disease_id);
+        $booking->feedback = $request->feedback_appointment;
+        $booking->save();
         if ($count !=NULL) {
             for ($i=0; $i <$count ; $i++) {
                 $prescription = new Prescription();
