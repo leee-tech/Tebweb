@@ -62,20 +62,13 @@
                             <a href="{{route('doctor.unactive',$d->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
                                 <span class="icon"><i class="mdi mdi-block-helper"></i></span>
                             </a>
-                            @if($d->hasRole('doctor'))
-                                <a href="{{route('doctor.admin',$d->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
-                                    <span class="icon"><i class="mdi mdi-account-switch"></i></span>
-                                </a>
-                                @endif
-                                @if($d->hasRole('admin'))
-                                    <a href="{{route('doctor.unadmin',$d->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
-                                        <span class="icon"><i class="mdi mdi-account-switch"></i></span>
-                                    </a>
-                                @endif
+
                             @endif
-                            <button class="button small red --jb-modal" data-target="sample-modal" type="button">
+                            <a class="button small red --jb-modal" href="{{route('users.destroy',$d->id)}}"
+                               onclick="event.preventDefault();
+                                   document.getElementById('delete-form-{{$d->id}}').submit();">
                                 <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                            </button>
+                            </a>
                         </div>
                     </td>
                 </tr>

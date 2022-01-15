@@ -10,7 +10,7 @@ class DepartmentController extends Controller
 
     public function index()
     {
-        $departments = Department::paginate(10);
+        $departments = Department::paginate(30);
         //dd($patients);
         return view('admin.department.index',compact('departments'));
 

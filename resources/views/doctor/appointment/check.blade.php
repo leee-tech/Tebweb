@@ -246,8 +246,10 @@
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Creator</th>
+                <th scope="col">Name</th>
                 <th scope="col">Date</th>
+                <th scope="col">Clinics name</th>
+
                 <th scope="col">View & Update</th>
             </tr>
             </thead>
@@ -257,6 +259,7 @@
                     <td>{{ $loop->index + 1 }}</td>
                     <td>{{ $appointment->doctor->first_name }}</td>
                     <td>{{ $appointment->date }}</td>
+                    <td>{{ $appointment->clinic->name }}</td>
                     <td>
                         <form action="{{ route('appointments.check') }}" method="post">@csrf
                             <input type="hidden" name="date" value="{{ $appointment->date }}">

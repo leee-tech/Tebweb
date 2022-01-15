@@ -52,7 +52,7 @@ class AppointmentController extends Controller
     public function check(Request $request)
     {
         $date = $request->date;
-        $appointment = Appointment::where('date', $date)->where('user_id', auth()->user()->id)->first();
+        $appointment = Appointment::with('clinic')->where('date', $date)->where('user_id', auth()->user()->id)->first();
         if (!$appointment) {
             return redirect()->to('doctor/appointments')->with('errMessage', 'Appointment time is not available for this date');
         };

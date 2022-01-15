@@ -9,7 +9,7 @@
                 </p>
             </header>
             <div class="card-content">
-                        <p class="lead"> <b>Name :</b>: {{ ucfirst($user->first_name . ' ' .$user->first_name) }}</p>
+                        <p class="lead"> <b>Name :</b>: {{ ucfirst($user->first_name . ' ' .$user->last_name) }}</p>
                 <p class="lead"> <b>Department :</b>: {{ ucfirst($user->department->name) }}</p>
                 <p class="lead"> <b>Hospital :</b>: {{ ucfirst($user->hospital->name) }}</p>
 

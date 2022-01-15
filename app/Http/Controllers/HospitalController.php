@@ -9,7 +9,7 @@ class HospitalController extends Controller
 {
     public function index()
     {
-        $hospitals = Hospital::paginate(10);
+        $hospitals = Hospital::paginate(30);
         //dd($patients);
         return view('admin.hospital.index',compact('hospitals'));
 

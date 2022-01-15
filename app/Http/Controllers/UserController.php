@@ -15,14 +15,14 @@ class UserController extends Controller
     public function index(Request $request)
     {
         if($request->active){
-            $users = User::role('doctor')->where('active',0)->with(['hospital','department'])->paginate(10);
+            $users = User::role('doctor')->where('active',0)->with(['hospital','department'])->paginate(20);
 
         }else if($request->admins)
         {
-            $users = User::role('admin')->where('active',1)->with(['hospital','department'])->paginate(10);
+            $users = User::role('admin')->where('active',1)->with(['hospital','department'])->paginate(20);
 
         }else{
-            $users = User::role('doctor')->where('active',1)->with(['hospital','department'])->paginate(10);
+            $users = User::role('doctor')->where('active',1)->with(['hospital','department'])->paginate(20);
         }
         return view('admin.users.view_doctor',compact('users'));
     }
@@ -129,8 +129,9 @@ class UserController extends Controller
         return redirect()->route('users.index')->with('success','Doctor Un Active successful');
 
     }
-    public function destroy($id)
+    public function destroy(User $user)
     {
-
+        $user->delete();
+        return redirect()->route('users.index')->with('success','Update doctor successful');
     }
 }

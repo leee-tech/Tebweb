@@ -30,7 +30,7 @@
                     </p>
                 </header>
                 <div class="card-content">
-                    <form method="post" action="{{route('users.store')}}">
+                    <form method="post" action="{{route('patients.store')}}">
                         @csrf
                         <div class="field">
                             <label class="label">From</label>
@@ -66,20 +66,7 @@
                                         <span class="icon left"><i class="mdi mdi-mail"></i></span>
                                     </div>
                                 </div>
-                                <div class="field">
-                                    <div class="control icons-left icons-right">
-                                        <div class="select is-fullwidth">
-                                            <select class="form-control" name="department_id">
-                                                @foreach ($departments as $key)
-                                                    <option value="{{ $key->id }}">
-                                                        {{ $key->name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <span class="icon left"><i class="mdi mdi-adjust"></i></span>
-                                    </div>
-                                </div>
+
                                 <div class="field">
                                     <div class="control icons-left icons-right">
                                         <select class="input"  name="gender" required>

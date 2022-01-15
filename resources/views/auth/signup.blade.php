@@ -20,7 +20,8 @@
             <header class="card-header">
                 <p class="card-header-title">
                     <span class="icon"><i class="mdi mdi-lock"></i></span>
-                    Register
+                    Create a new account
+
 
             </header>
             <div class="card-content">
@@ -62,7 +63,7 @@
                     <div class="field spaced">
                         <label class="label">Phone</label>
                         <div class="control icons-left">
-                            <input class="input" type="text" name="phone" placeholder="Phone" required>
+                            <input class="input" type="number" name="phone" placeholder="Phone" required>
                             <span class="icon is-small left"><i class="mdi mdi-account"></i></span>
                             @if ($errors->has('phone'))
                                 <span class="text-danger">{{ $errors->first('phone') }}</span>

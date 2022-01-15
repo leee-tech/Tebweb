@@ -53,8 +53,8 @@
 
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#intro">Home</a></li>
-                    <li><a href="#doctor">Doctors</a></li>
+                    <li class="active"><a href="#intro"><H4><B>Home</B></H4></a></li>
+                    <li><a href="#doctor"><H4><B>Doctors</B></H4></a></li>
                 </ul>
             </div>
         </div>
@@ -77,7 +77,7 @@
                             <div class="wow fadeInRight" data-wow-delay="0.1s">
 
                                 <ul class="lead-list">
-                                    <li><span >    <img src="new.jpg" alt="" width="100" height="100" /></span> <span class="list"><strong>Avoid not crowding</strong><br /></span></li>
+                                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Avoid not crowding</strong><br /></span></li>
                                     <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Wear a mask</strong><br /></span></li>
                                     <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Take the vaccine doses</strong><br /></span></li>
                                 </ul>
@@ -93,7 +93,7 @@
 
                                 <div class="panel panel-skin">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title"><span class="fa fa-pencil-square-o"></span> Make an appoinment <br><br><small><b>login</b></small></h3>
+                                        <h3 class="panel-title"><span class="fa fa-pencil-square-o"></span> Login / Signup  <br><br></h3>
                                     </div>
                                     <div class="panel-body">
                                         <form role="form" method="POST" action="{{route('auth.login')}}" class="lead">
@@ -113,7 +113,7 @@
                                             <div class="row">
                                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                                     <div class="form-group">
-                                                        <label>Email</label>
+                                                        <label>Password</label>
                                                         <input class="form-control input-md" type="password" name="password" placeholder="Password" autocomplete="current-password">
                                                         @if ($errors->has('password'))
                                                             <span class="text-danger">{{ $errors->first('password') }}</span>
@@ -125,7 +125,7 @@
 
                                             <input type="submit" value="Login" class="btn btn-skin btn-block btn-lg">
 
-                                            <p class="lead-footer" ><a  href="{{route('auth.login')}}"> <lable style="color:RED;"> Create an account ‏</lable></a></p>
+                                            <B> <p class="lead-footer" >If you don't have an account<a  href="{{route('auth.login')}}"> <lable style="color:#1515bb;"> <u>CLICK HERE</u> ‏</lable></a></p></B>
 
                                         </form>
                                     </div>

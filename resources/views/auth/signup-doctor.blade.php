@@ -26,8 +26,13 @@
             <header class="card-header">
                 <p class="card-header-title">
                     <span class="icon"><i class="mdi mdi-lock"></i></span>
-                    Register
+                    Register Doctor
                 </p>
+
+
+
+
+
             </header>
             <div class="card-content">
                 <form method="POST" action="{{route('doctor.signup.store')}}">
@@ -57,7 +62,7 @@
                     <div class="field spaced">
                         <label class="label">Phone</label>
                         <div class="control icons-left">
-                            <input class="input" type="text" name="phone" placeholder="Phone" required>
+                            <input class="input" type="number" name="phone" placeholder="Phone" required>
                             <span class="icon is-small left"><i class="mdi mdi-account"></i></span>
                             @if ($errors->has('phone'))
                                 <span class="text-danger">{{ $errors->first('phone') }}</span>
@@ -109,7 +114,7 @@
                     </div>
 
                     <div class="field spaced">
-                        <label class="label">Hospital</label>
+                        <label class="label">Hospital <small>(where you are work in )</small></label>
 
                         <div class="control icons-left icons-right">
                             <div class="select is-fullwidth">
@@ -125,7 +130,7 @@
                         </div>
                     </div>
                     <div class="field spaced">
-                        <label class="label">Department</label>
+                        <label class="label">Department <small>(What is your specialty )</small></label>
 
                         <div class="control icons-left icons-right">
                             <div class="select is-fullwidth">
@@ -173,6 +178,7 @@
                             <button type="submit" class="button blue">
                                 Register
                             </button>
+                            <small> Wait the admin agreegation</small>
                             @include('flash-message')
                         </div>
 

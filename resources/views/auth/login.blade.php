@@ -2,7 +2,7 @@
 
 @section('section')
 
-    <title>Login</title>
+    <title>Register</title>
 
     <body>
 
@@ -13,7 +13,7 @@
             <header class="card-header">
                 <p class="card-header-title">
                     <span class="icon"><i class="mdi  mdi-home"></i></span>
-                    <a  href="{{route('home')}}">Home</a>
+                    <a  href="{{route('home')}}">Register</a>
                 </p>
             </header>
             <div class="card-content">
