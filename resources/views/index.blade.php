@@ -214,7 +214,7 @@
                             @foreach($doctors as $doctor)
                             <li class="cbp-item psychiatrist">
 
-                                <a href="#" class="cbp-caption cbp-singlePage">
+                                <a class="cbp-caption">
 
                                     <div class="cbp-caption-defaultWrap">
                                         <img src="website_home/img/tebweb.jpg" alt="" width="100%">
@@ -227,7 +227,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a href="#.html" class="cbp-singlePage cbp-l-grid-team-name">{{$doctor->first_name .' ' .$doctor->last_name}}</a>
+                                <a class="cbp-singlePage cbp-l-grid-team-name">{{$doctor->first_name .' ' .$doctor->last_name}}</a>
 
                                 <div class="cbp-l-grid-team-position">{{$doctor->department->name ?? ''}}</div>
                             </li>

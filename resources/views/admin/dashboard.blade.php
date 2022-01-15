@@ -61,7 +61,7 @@
                     <div class="flex items-center justify-between">
                         <div class="widget-label">
                             <h3>
-                                Hospitals
+                                Clinics
                             </h3>
                             <h1>
                                 {{$count_hospital}}

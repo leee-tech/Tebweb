@@ -88,8 +88,8 @@ class PatientController extends Controller
 
     public function destroy($id)
     {
-        $hospital = Hospital::find($id);
-        $hospital->delete();
+        $user = User::find($id);
+        $user->delete();
         return redirect()->route('patients.index')->with('success','Delete successful');
 
     }

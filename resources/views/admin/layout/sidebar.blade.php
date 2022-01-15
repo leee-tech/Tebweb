@@ -72,11 +72,7 @@
                             <span>Un Active Doctor</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="{{route('users.index',['admins'=>1])}}">
-                            <span>Admins</span>
-                        </a>
-                    </li>
+
                 </ul>
             </li>
 

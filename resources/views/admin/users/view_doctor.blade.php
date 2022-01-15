@@ -54,21 +54,16 @@
                             <a href="{{route('users.edit',$d->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
                                 <span class="icon"><i class="mdi mdi-eye"></i></span>
                             </a>
-                            @if($d->active == 0)
-                            <a href="{{route('doctor.active',$d->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
-                                <span class="icon"><i class="mdi mdi-account-check"></i></span>
-                            </a>
-                            @else
-                            <a href="{{route('doctor.unactive',$d->id)}}" class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
-                                <span class="icon"><i class="mdi mdi-block-helper"></i></span>
-                            </a>
 
-                            @endif
                             <a class="button small red --jb-modal" href="{{route('users.destroy',$d->id)}}"
                                onclick="event.preventDefault();
                                    document.getElementById('delete-form-{{$d->id}}').submit();">
                                 <span class="icon"><i class="mdi mdi-trash-can"></i></span>
                             </a>
+                            <form id="delete-form-{{$d->id}}" action="{{route('users.destroy',$d->id)}}" method="POST" style="display: none;">
+                                @method('delete')
+                                @csrf
+                            </form>
                         </div>
                     </td>
                 </tr>
